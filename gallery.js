@@ -1,12 +1,12 @@
 
     // load images array from images.js instead 
-    console.log(images); // check if it’s working
+    console.log(drawings); // check if it’s working
 
     
     // Pagination variables
     const imagesPerPage = 10; // Reduced to 4 per page since each image now takes more vertical space
     let currentPage = 1;
-    const totalPages = Math.ceil(images.length / imagesPerPage);
+    const totalPages = Math.ceil(drawings.length / imagesPerPage);
     
     // DOM elements
     const gallery = document.getElementById('gallery');
@@ -19,7 +19,7 @@
       gallery.innerHTML = '';
       
       const startIndex = (currentPage - 1) * imagesPerPage;
-      const endIndex = Math.min(startIndex + imagesPerPage, images.length);
+      const endIndex = Math.min(startIndex + imagesPerPage, drawings.length);
       
       for (let i = startIndex; i < endIndex; i++) {
         const drawingDiv = document.createElement('div');
@@ -42,11 +42,11 @@
         
         // Create anchor tag to open image in new tab
         const link = document.createElement('a');
-        link.href = images[i];
+        link.href = drawings[i];
         link.target = "_blank"; // This makes it open in a new tab
         
         const img = document.createElement('img');
-        img.src = images[i];
+        img.src = drawings[i];
         img.alt = 'Artwork';
         
         link.appendChild(img);
