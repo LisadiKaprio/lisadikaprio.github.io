@@ -13,6 +13,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
+      - name: Install git
+        run: sudo apt-get update && sudo apt-get install -y git
+
       - name: Create images.js file
         run: |
           echo "const drawings = [" > images.js
@@ -23,8 +26,8 @@ jobs:
 
       - name: Commit the updated images.js
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@users.noreply.github.com"
+          git config --global user.email "lisadikaprio@gmail.com"
+          git config --global user.name "lisadikaprio"
           git add images.js
-          git commit -m "Update image list"
-          git push
+          git commit -m "Github Actions: Update image list"
+          git push origin main
