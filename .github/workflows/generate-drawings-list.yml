@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Install git
-        run: sudo apt-get update && sudo apt-get install -y git
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Create images.js file
         run: |
@@ -27,7 +26,7 @@ jobs:
       - name: Commit the updated images.js
         run: |
           git config --global user.email "lisadikaprio@gmail.com"
-          git config --global user.name "lisadikaprio"
+          git config --global user.name "LisadiKaprio"
           git add images.js
           git commit -m "Github Actions: Update image list"
-          git push origin main
+          git push
