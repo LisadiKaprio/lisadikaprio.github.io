@@ -1,0 +1,30 @@
+name: Generate Image List
+
+on:
+  push:
+    paths:
+      - 'drawings/**'  # runs only when the drawings folder changes
+
+jobs:
+  generate-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Create images.js file
+        run: |
+          echo "const drawings = [" > images.js
+          for img in drawings/*; do
+            echo "  'drawings/$img'," >> images.js
+          done
+          echo "];" >> images.js
+
+      - name: Commit the updated images.js
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git add images.js
+          git commit -m "Update image list"
+          git push
