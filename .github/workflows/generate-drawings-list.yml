@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "const drawings = [" > images.js
           for img in drawings/*; do
-            echo "  'drawings/$img'," >> images.js
+            echo "  '$img'," >> images.js
           done
           echo "];" >> images.js
 
