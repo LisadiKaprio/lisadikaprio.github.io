@@ -18,7 +18,7 @@ jobs:
       - name: Create images.js file
         run: |
           echo "const drawings = [" > images.js
-          for img in drawings/*; do
+          for img in $(ls -t drawings/*); do
             echo "  '$img'," >> images.js
           done
           echo "];" >> images.js
