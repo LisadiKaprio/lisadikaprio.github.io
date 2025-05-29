@@ -1,223 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>LisadiKaprio</title>
-  <style>
-    body {
-      background-color: #000000;
-      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23330033' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-      font-family: "Times New Roman", serif;
-      margin: 0;
-      padding: 20px;
-      color: #cccccc;
-    }
-    
-    .header {
-      text-align: center;
-      border: 3px solid #660066;
-      padding: 10px;
-      margin-bottom: 20px;
-      background-color: #0a0a0a;
-      box-shadow: 0 0 10px #990099;
-    }
-    
-    .header h1 {
-      font-family: "Old English Text MT", "Times New Roman", serif;
-      color: #990099;
-      margin: 0;
-      letter-spacing: 2px;
-      text-shadow: 0 0 5px #cc00cc;
-    }
-    
-    .counter {
-      text-align: center;
-      font-size: 12px;
-      margin: 10px 0;
-      color: #990099;
-      font-family: "Courier New", monospace;
-    }
-    
-    .gallery {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .drawing {
-      border: 1px solid #660066;
-      padding: 8px;
-      background-color: #0a0a0a;
-      box-shadow: 0 0 5px #660066;
-      margin-bottom: 30px;
-      text-align: center;
-      position: relative;
-    }
-    
-    .drawing:hover {
-      box-shadow: 0 0 15px #990099;
-    }
-    
-    .drawing img {
-      max-width: 100%;
-      max-height: 500px;
-      display: block;
-      margin: 0 auto;
-    }
-    
-    .drawing::before,
-    .drawing::after {
-      content: "†††††††††††††††";
-      display: block;
-      color: #660066;
-      text-align: center;
-      padding: 5px 0;
-      font-size: 14px;
-      letter-spacing: 2px;
-    }
-    
-    .drawing-corner {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      color: #990099;
-      font-size: 20px;
-      line-height: 1;
-    }
-    
-    .corner-tl {
-      top: 5px;
-      left: 5px;
-    }
-    
-    .corner-tr {
-      top: 5px;
-      right: 5px;
-    }
-    
-    .corner-bl {
-      bottom: 5px;
-      left: 5px;
-    }
-    
-    .corner-br {
-      bottom: 5px;
-      right: 5px;
-    }
-    
-    .pagination {
-      text-align: center;
-      margin: 30px 0;
-    }
-    
-    .pagination button {
-      background-color: #330033;
-      color: #cccccc;
-      border: 1px solid #660066;
-      padding: 8px 15px;
-      margin: 0 5px;
-      cursor: pointer;
-      font-family: "Times New Roman", serif;
-      transition: all 0.3s;
-    }
-    
-    .pagination button:hover {
-      background-color: #660066;
-      color: #ffffff;
-      box-shadow: 0 0 8px #990099;
-    }
-    
-    .pagination button:disabled {
-      background-color: #1a1a1a;
-      color: #666666;
-      cursor: not-allowed;
-      border: 1px solid #333333;
-    }
-    
-    .page-info {
-      color: #990099;
-      margin: 10px 0;
-    }
-    
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 12px;
-      border-top: 1px solid #660066;
-      padding-top: 10px;
-      color: #990099;
-    }
-    
-    .blink {
-      animation: blinker 1s linear infinite;
-    }
-    
-    @keyframes blinker {
-      50% {
-        opacity: 0;
-      }
-    }
-    
-    .marquee {
-      background-color: #0a0a0a;
-      color: #990099;
-      padding: 5px;
-      margin: 15px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      border: 1px solid #660066;
-    }
-    
-    .marquee span {
-      display: inline-block;
-      animation: marquee 15s linear infinite;
-    }
-    
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    
-    .decoration {
-      text-align: center;
-      margin: 20px 0;
-      font-size: 24px;
-      color: #990099;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisadiKaprio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
-<body>
-  <div class="header">
-    <h1>LisadiKaprio</h1>
-    <p>Online Gallery</p>
-  </div>
-  
-  <div class="counter">
-    <span id="visitor-count">Visitors: 000372</span>
-  </div>
-  
-  <div class="decoration">
-    &#x2020; &#x2020; &#x2020;
-  </div>
-  
-  <div class="marquee">
-    <span> (￣y▽￣)╭  Welcome..... ♪(^∇^*)</span>
-  </div>
-  
-  <div class="gallery" id="gallery">
-    <!-- Images will be loaded here via JavaScript -->
-  </div>
-  
-  <div class="pagination">
-    <button id="prev-btn" disabled>Previous</button>
-    <span class="page-info" id="page-info">Page 1 of 1</span>
-    <button id="next-btn">Next</button>
-  </div>
-  
-  <div class="footer">
-    <p>&#x2020; LisadiKaprio &#x2020; Made with ❤️ and v0 AI &#x2020;</p>
-    <p><small>Best viewed at midnight</small></p>
-  </div>
+<body class="font-mono antialiased">
+    <script src="/oneko.js"></script>
 
-  <script src="images.js"></script>
-  <script src="gallery.js"></script>
+        <!-- Main content -->
+    <div class="min-h-screen bg-stone-50 text-stone-900">
+        <!-- Simple header -->
+        <header class="border-b border-stone-300 bg-stone-100">
+            <div class="max-w-4xl mx-auto px-4 py-4">
+                <nav class="flex gap-6 text-sm">
+                    <a href="index.html" class="font-mono underline">about</a>
+                    <a href="gallery.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
+                </nav>
+            </div>
+        </header>
+        <main class="max-w-2xl mx-auto px-4 py-12">
+            <div class="space-y-8">
+                <div>
+                    <h1 class="text-2xl font-mono mb-4">LisadiKaprio</h1>
+                    <div class="space-y-4 text-stone-700 leading-relaxed">
+                        <p>traditional art ◦ digital art ◦ web development ◦ twitch</p>
+                        <p>daytime job: backend / rust</p>
+                        <p>studied game design in HTW Berlin</p>
+                    </div>
+                </div>
+                <div class="border-t border-stone-300 pt-8">
+                    <h2 class="text-lg font-mono mb-4">contact</h2>
+                    <p class="text-stone-700">lisadikaprio@gmail.com</p>
+                </div>
+
+                <div class="text-xs text-stone-500 border-t border-stone-300 pt-8">
+                    <p>last updated: may 2025</p>
+                    <a href="https://github.com/adryd325/oneko.js" class=" text-stone-400 hover:text-stone-600 hover:underline">cat code</a>
+                </div>
+            </div>
+        </main>
+            </div>
 </body>
-</html>
+
+<!-- 
+<html>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <header class="header">
+            <div class="container">
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">about</a>
+                    <a href="gallery.html" class="nav-link">gallery</a>
+                </nav>
+            </div>
+        </header>
+<body>
+    <div class="min-h-screen bg-stone-50 text-stone-900">
+      <main class="max-w-2xl mx-auto px-4 py-12">
+        <div class="space-y-8">
+          <div>
+            <h1 class="text-2xl font-mono mb-4">LisadiKaprio</h1>
+            <div class="space-y-4 text-stone-700 leading-relaxed">
+              <p>🥞 she/her</p>
+              <p>🍌 languages: english ◦ german ◦ russian</p>
+              <p>
+                current daytime job: backend / rust
+              </p>
+              <p>
+                studied game design at HTW Berlin.
+              </p>
+            </div>
+          </div>
+
+          <div class="border-t border-stone-300 pt-8">
+            <h2 class="text-lg font-mono mb-4">☕ hobbies</h2>
+            <ul class="space-y-2 text-stone-700">
+              <li>• traditional art</li>
+              <li>• digital art</li>
+              <li>• web development</li>
+              <li>• twitch</li>
+            </ul>
+          </div>
+
+          <div class="border-t border-stone-300 pt-8">
+            <h2 class="text-lg font-mono mb-4">contact</h2>
+            <p class="text-stone-700">🥡 contact: lisadikaprio@gmail.com</p>
+          </div>
+
+          <div class="text-xs text-stone-500 border-t border-stone-300 pt-8">
+            <p>last updated: may 2025</p>
+          </div>
+        </div>
+      </main>
+    </div>
+</body>
+</html> -->
