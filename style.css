@@ -253,3 +253,58 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(230, 200, 149);
 }
+
+
+/* Masonry grid using CSS columns */
+.sketchbook-grid {
+    column-count: 1;
+    column-gap: 1rem;
+    column-fill: balance;
+}
+
+@media (min-width: 768px) {
+    .sketchbook-grid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sketchbook-grid {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1290px) {
+    .sketchbook-grid {
+        column-count: 4;
+    }
+}
+
+.sketchbook-link {
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.sketchbook-link:hover {
+    text-decoration: none;
+}
+
+
+.sketchbook-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none; /* remove border */
+}
+
+.sketchbook-image.back {
+    display: none;
+}
+
+.sketchbook-item a.sketchbook-link:hover .sketchbook-image.front {
+    display: none;
+}
+
+.sketchbook-item a.sketchbook-link:hover .sketchbook-image.back {
+    display: block;
+}
