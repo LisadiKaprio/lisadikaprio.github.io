@@ -6,6 +6,15 @@
     box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Ballet";
+  src: url("./fonts/Ballet.ttf") format("truetype");
+}
+
+.shine{
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.75);
+}
+
 body {
     font-family: "Courier New", monospace;
     background-color: #fafaf9;
@@ -179,6 +188,15 @@ a:hover {
     }
 }
 
+.header-text {
+    font-family: "Ballet";
+    font-weight: 900;
+    font-size: 30px;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.075);
+    z-index: 200;
+    flex-grow: 1;
+    letter-spacing: 1px;
+}
 .gallery-item {
     break-inside: avoid;
     margin-bottom: 1rem;
