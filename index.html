@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
+
 <body class="font-mono antialiased">
     <script src="/oneko.js"></script>
 
@@ -16,41 +18,113 @@
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <nav class="flex gap-6 text-sm">
                     <a href="index.html" class="font-mono underline">about</a>
-                    <a href="gallery.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
-                    <a href="archive.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
+                    <a href="gallery.html"
+                        class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
+                    <a href="archive.html"
+                        class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
                 </nav>
             </div>
         </header>
         <main class="max-w-2xl mx-auto px-4 py-12">
             <div class="space-y-8">
-                <div>
-                    <h1 class="text-2xl font-mono mb-4">LisadiKaprio</h1>
-                    <div class="space-y-4 text-stone-700 leading-relaxed">
-                        <p>traditional art ◦ digital art ◦ twitch</p>
-                        <p>web development ◦ game development</p>
-                        <p>daytime job: backend / rust</p>
-                        <p>studied game design in HTW Berlin</p>
+                        <h1 class="text-2xl font-mono mb-4">LisadiKaprio</h1>
+                        <div class="space-y-4 text-stone-700 leading-relaxed">
+                            <p>traditional art ◦ digital art ◦ twitch</p>
+                            <p>web development ◦ game development</p>
+                            <p>daytime job: backend / rust</p>
+                            <p>studied game design in HTW Berlin</p>
+                        </div>
+                <div class="flex flex-row border-t border-stone-300 pt-8">     
+         
+                    <div class="w-52 mr-8">       
+                        <div class="text-stone-500 border-2 border-stone-300 text-sm p-1">
+                            <h1>latest updates</h1>
+                        </div>
+                        <ul id="commits" class="h-fit overflow-y-auto space-y-2 text-xs text-stone-700 border-x-2 border-b-2 border-dashed border-stone-300 p-1">
+                            <li>loading…</li>
+                        </ul>
+                    </div>
+                    <div class="flex-grow-1">
+                        <div>
+                            <img src="https://mutant.tech/emoji/webp-128/crt_test_pattern.webp" class="inline h-4 w-4">
+                            <a href="gallery.html"
+                                class="font-mono font-bold text-amber-500  hover:text-amber-800 hover:underline">
+                                check out the gallery >>></a>
+                        </div>
+                        <div>
+                            <img src="https://mutant.tech/emoji/webp-128/cat_devious.webp" class="inline h-4 w-4">
+                            <a href="lilo-nase/memory-garden.html"
+                                class="font-mono font-bold text-amber-500  hover:text-amber-800 hover:underline">
+                                lilo's memory garden >>></a>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="border-t border-stone-300 pt-8">
-                    <img src="https://mutant.tech/emoji/webp-128/crt_test_pattern.webp" class="inline h-4 w-4">
-                    <a href="gallery.html" class="font-mono underline text-amber-500  hover:text-amber-800 hover:underline"> 
-                       check out the gallery >>></a>
-                       <br></br>
-                    <img src="https://mutant.tech/emoji/webp-128/cat_devious.webp" class="inline h-4 w-4">
-                    <a href="lilo-nase/memory-garden.html" class="font-mono underline text-amber-500  hover:text-amber-800 hover:underline"> 
-                       lilo's memory garden >>></a>
-                </div>
-                <div class="border-t border-stone-300 pt-8">
-                  <iframe src="https://lisadikaprio.atabook.org/" width="100%" height="600px" class="border-2 border-dashed border-stone-300"></iframe>
+                    <iframe src="https://lisadikaprio.atabook.org/" width="100%" height="600px"
+                        class="border-2 border-dashed border-stone-300"></iframe>
                 </div>
 
-                <div class="text-xs text-stone-500 border-t border-stone-300 pt-8">
-                    <p>last updated: august 2025</p>
+                <div class="text-xs text-stone-500 border-t border-stone-300 mt-8">
                     <p>contact: lisadikaprio@gmail.com</p>
-                    <a href="https://github.com/adryd325/oneko.js" class="text-stone-400 hover:text-stone-600 hover:underline">cat code</a>
+                    <a href="https://github.com/adryd325/oneko.js"
+                        class="text-stone-400 hover:text-stone-600 hover:underline">cat code</a>
+                    <div class="font-bold text-stone-500 text-xs mt-4">
+                        <p>internet friends:</p>
+                        <a href="https://para.hyottoko.club/" target="_blank"><img src="./friends/para.png" alt="ParaHyottokoClub"></a>
+                    </div>
                 </div>
             </div>
         </main>
-            </div>
+    </div>
+
+<!-- Git-Repo Updates Script -->
+<script> 
+const owner = "lisadikaprio"; 
+const repo = "lisadikaprio.github.io"; 
+const limit = 10; 
+function esc(s) { 
+    return s.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])); 
+    } 
+function when(date) { 
+        const d = new Date(date); 
+        const now = new Date(); 
+        const secs = Math.floor((now - d) / 1000); 
+        if (secs < 60) return `${secs}s ago`; 
+        const mins = Math.floor(secs / 60); 
+        if (mins < 60) return `${mins}m ago`; 
+        const hrs = Math.floor(mins / 60); 
+        if (hrs < 24) return `${hrs}h ago`; 
+        const days = Math.floor(hrs / 24); 
+        if (days < 7) return `${days}d ago`; 
+        return d.toLocaleDateString("en-GB", { year: 'numeric', month: 'short', day: 'numeric' }); 
+        
+} 
+async function loadCommits() { 
+    const list = document.getElementById("commits"); 
+    const err = document.getElementById("err"); 
+    try { 
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=${limit}`); 
+        if (!res.ok) throw new Error(`github api error ${res.status}`); 
+        const data = await res.json(); 
+        list.innerHTML = ""; 
+        data.slice(0, 2).forEach(c => { 
+            const li = document.createElement("li"); 
+            const msg = esc(c.commit.message.split("\n")[0]); 
+            const url = c.html_url; 
+            const who = esc(c.commit.author?.name || "someone"); 
+            const whenStr = when(c.commit.author?.date || c.commit.committer?.date); 
+            li.innerHTML = `<h6 class="font-bold">${whenStr}: </h6><span class="text-xs text-stone-500">${msg}</span> `; 
+            list.appendChild(li); 
+        }        ); 
+        if (!data.length) list.innerHTML = "<li>No commits found</li>"; 
+    } catch (e) { 
+        err.hidden = false; 
+        err.textContent = "Couldn’t load list of updates - maybe rate limited. Try again later."; 
+        console.error(e); 
+    } 
+} 
+loadCommits(); 
+</script>
+
 </body>
