@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisadiKaprio Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body class="font-mono antialiased">
+    <!-- <script src="/oneko.js"></script> -->
+    <div class="min-h-screen bg-stone-50 text-stone-900">
+        <header class="border-b border-stone-300 bg-stone-100">
+            <div class="max-w-4xl mx-auto px-4 py-4">
+                <nav class="flex gap-6 text-sm">
+                    <a href="index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">about</a>
+                    <a href="gallery.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
+                    <a href="archive.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
+                </nav>
+            </div>
+        </header>
+      <main class="max-w-7xl mx-auto px-4 py-8 ">
+            <a href="/index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline"><<< back</a>
+            <div class="mb-8 text-center">
+                <h1 class="text-xl font-mono mb-2">digital bookshelf</h1>
+                <p class="text-sm text-stone-600">recently read books 2025-2026, most recent at the top</p>
+                <p class="text-sm text-stone-600">click on a book to copy author + title to clipboard</p>
+            </div>
+            <div class="flex justify-center">
+                <div id="books-container"></div>
+                <div id="tooltip"></div>
+            </div>
+        </main>
+    </div>
+</body>
+<script>
+const books = [
+  { img: "book-1.png", title: "Zwanghaft", author: "David Adam" },
+  { img: "book-2.png", title: "True Crime in Nature", author: "Farina Grassmann" },
+  { img: "book-3.png", title: "Der elektronische Spiegel", author: "Manuela Lenzen" },
+  { img: "book-4.png", title: "This Way Up", author: "Map Men" },
+  { img: "book-5.png", title: "The Courage to Be Disliked", author: "Ichiro Kishimi, Fumitake Koga" },
+  { img: "book-6.png", title: "The Courage to Be Happy", author: "Ichiro Kishimi, Fumitake Koga" },
+  { img: "book-7.png", title: "Menschenkenntnis", author: "Alfred Adler" },
+  { img: "book-8.png", title: "(short stories)", author: "Ted Chiang" }
+]
+
+const container = document.getElementById("books-container")
+const tooltip = document.getElementById("tooltip")
+
+container.style.display = "flex"
+container.style.flexDirection = "column"
+container.style.gap = "0"
+
+tooltip.style.display = "none"
+
+books.slice().reverse().forEach(book => {
+  const img = document.createElement("img")
+  img.src = "books-pngs/" + book.img
+  img.classList.add("book")
+
+  const text = book.author + ": " + book.title
+
+  img.addEventListener("mousemove", e => {
+    tooltip.style.display = "block"
+    tooltip.textContent = text
+    tooltip.style.left = e.clientX + "px"
+    tooltip.style.top = e.clientY + 20 + "px"
+  })
+
+  img.addEventListener("mouseleave", () => {
+    tooltip.style.display = "none"
+  })
+
+  img.addEventListener("click", () => {
+    navigator.clipboard.writeText(text)
+    tooltip.textContent = "Copied to clipboard!"
+    tooltip.style.display = "block"
+    setTimeout(() => tooltip.textContent = text, 850)
+  })
+
+
+  container.appendChild(img)
+})
+</script>
+</html>

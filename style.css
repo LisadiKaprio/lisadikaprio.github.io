@@ -326,3 +326,25 @@ a:hover {
 .sketchbook-item a.sketchbook-link:hover .sketchbook-image.back {
     display: block;
 }
+
+.books-container {
+    display: flex;
+    flex-direction: column;
+    gap:0;
+}
+
+.book{
+    flex: 0 0 auto;
+    align-self: flex-start;
+    cursor:pointer;
+}
+
+#tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
