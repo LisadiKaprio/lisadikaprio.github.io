@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LisadiKaprio Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body class="font-mono antialiased">
+    <!-- <script src="/oneko.js"></script> -->
+    <div class="min-h-screen bg-stone-50 text-stone-900">
+        <header class="border-b border-stone-300 bg-stone-100">
+            <div class="max-w-4xl mx-auto px-4 py-4">
+                <nav class="flex gap-6 text-sm">
+                    <a href="../index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline" >about</a>
+                    <a href="../gallery.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
+                    <a href="../archive.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
+                </nav>
+            </div>
+        </header>
+      <main class="max-w-7xl mx-auto px-4 py-8 ">
+            <a href="../index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline"><<< back</a>
+            <div class="mb-8 text-center">
+                <h1 class="text-xl font-mono mb-2">croquis archive</h1>
+                <p class="text-sm text-stone-600">timed studies from photo references</p>
+                <p class="text-sm text-stone-600">websites I used: 
+                    <a href="https://quickposes.com/en/gestures/random" target="_blank" class="text-stone-600 hover:text-stone-900">quickposes</a>,
+                    <a href="https://line-of-action.com/" target="_blank" class="text-stone-600 hover:text-stone-900">line of action</a>.
+                 </p>
+            </div>
+            <div class="gallery-grid-larger">
+
+                <div class="gallery-item">
+                    <a href="10.png" target="_blank" class="image-link">
+                        <img src="10.png"class="gallery-image">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="9.png" target="_blank" class="image-link">
+                        <img src="9.png"class="gallery-image">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="8.png" target="_blank" class="image-link">
+                        <img src="8.png"class="gallery-image">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="7.png" target="_blank" class="image-link">
+                        <img src="7.png"class="gallery-image">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="6.png" target="_blank" class="image-link">
+                        <img src="6.png"class="gallery-image">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="5.png" target="_blank" class="image-link">
+                        <img src="5.png"class="gallery-image">
+                    </a>
+                </div>
+
+                <div class="gallery-item">
+                    <a href="2.jpg" target="_blank" class="image-link">
+                        <img src="2.jpg"class="gallery-image">
+                    </a>
+                </div>
+
+                <div class="gallery-item">
+                    <a href="1.jpg" target="_blank" class="image-link">
+                        <img src="1.jpg"class="gallery-image">
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<style>
+    
+    /* Masonry grid using CSS columns */
+    .gallery-grid-larger {
+        column-count: 1;
+        column-gap: 1rem;
+        column-fill: balance;
+    }
+
+    @media (min-width: 1024px) {
+        .gallery-grid-larger {
+            column-count: 1;
+        }
+    }
+
+    @media (min-width: 1290px) {
+        .gallery-grid-larger {
+            column-count: 2;
+        }
+    }
+
+</style>
+</html>

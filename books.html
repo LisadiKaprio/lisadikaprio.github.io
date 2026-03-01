@@ -14,7 +14,7 @@
         <header class="border-b border-stone-300 bg-stone-100">
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <nav class="flex gap-6 text-sm">
-                    <a href="index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">about</a>
+                    <a href="index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline" >about</a>
                     <a href="gallery.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
                     <a href="archive.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
                 </nav>
@@ -27,9 +27,14 @@
                 <p class="text-sm text-stone-600">recently read books 2025-2026, most recent at the top</p>
                 <p class="text-sm text-stone-600">click on a book to copy author + title to clipboard</p>
             </div>
-            <div class="flex justify-center">
-                <div id="books-container"></div>
-                <div id="tooltip"></div>
+            <div class="flex row justify-center items-end">
+                <div class="flex justify-center">
+                    <div id="books-container"></div>
+                    <div id="tooltip"></div>
+                </div>
+                <div class="flex justify-center" style="margin-left: -80px; margin-bottom: -20px;">
+                    <img src="books-pngs/cup.png" style="width: auto; height: auto; flex-shrink: 0;" alt="steaming cup">
+                </div>
             </div>
         </main>
     </div>
@@ -48,6 +53,10 @@ const books = [
   { img: "book-8.png", title: "(short stories)", author: "Ted Chiang" },
   { img: "book-9.png", title: "Nekropolis", author: "Boris Pahor, Jurij Devetak" },
   { img: "book-10.png", title: "Ducks", author: "Kate Beaton" },
+  { img: "book-11.png", title: "Die Kunst des Lebens", author: "Erich Fromm" },
+  { img: "book-12.png", title: "Per Anhalter durch die Galaxis", author: "Douglas Adams" },
+  { img: "book-13.png", title: "Der Krieg der Welten", author: "H.G. Wells, Thilo Krapp" },
+  { img: "book-14.png", title: "Haben oder Sein", author: "Erich Fromm" },
 ]
 
 const container = document.getElementById("books-container")
