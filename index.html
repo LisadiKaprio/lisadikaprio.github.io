@@ -13,41 +13,48 @@
 <body class="font-mono antialiased">
     <script src="/oneko.js"></script>
 
-    <div class="min-h-screen bg-stone-50 text-stone-900">
-        <header class="border-b border-stone-300 bg-stone-100">
+    <div class="min-h-screen jupiter-bg-1  text-stone-900">
+        <header class="border-b border-stone-300 jupiter-bg-1  bg-stone-100">
             <div class="max-w-4xl mx-auto px-4 py-4">
-                <nav class="flex gap-6 text-sm">
-                    <a href="index.html" class="font-mono underline">about</a>
-                    <a href="gallery.html"
-                        class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
-                    <a href="archive.html"
-                        class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
+                <nav class="flex flex-row gap-6 text-sm  text-gray-300 justify-between">
+                    <div>
+                        [<a href="index.html" class="font-mono underline">about</a>]
+                        [<a href="gallery.html"
+                            class="font-mono text-white hover:text-gray-300 hover:underline">
+                            gallery
+                        </a>]
+                        [<a href="archive.html"
+                            class="font-mono text-white hover:text-gray-300 hover:underline">
+                            archive
+                        </a>]
+                    </div>
+                    <div class="text-gray-200 flex flex-row space-x-3 items-end">
+                        <p id="catBedText">click the cat ✮˚.⋆ →</p>
+                        <img id="liloSleeping" src="lilo-sleeping.gif" style="display:inline" ></img>
+                    </div>
                 </nav>
             </div>
         </header>
         <main class="max-w-2xl mx-auto px-4 py-12">
-                        <h1 class="text-2xl font-mono mb-4">LisadiKaprio</h1>
-            <div class="space-y-8">
+            <div class="space-y-8 flex flex-col items-center">
+                <div class="flex-grow-1 text-center space-y-4 p-4" flex-grow-1 mr-8 space-y-4 text-center leading-relaxed">
                     
-                    <div class="flex flex-row justify-between">
-                        <div class="flex-grow-1 mr-8 space-y-4 text-stone-700 leading-relaxed">
-                            <p>traditional art ◦ digital art ◦ twitch</p>
-                            <p>web development ◦ game development</p>
-                            <p>studied game design in HTW Berlin</p>
-                        </div>
-                        <div class="flex flex-row items-center w-64 text-xs text-stone-700 border-2 border-dashed border-stone-300 p-1">
-                            <a href="https://www.etsy.com/de-en/shop/KaprioArtShop" class="flex-shrink-0" style="transform: translateX(-12px) translateY(-24px)" target="_blank">
-                                <img src="shoplogo.png" class="inline h-24 w-24 border-2 border-stone-300 " >
-                            </a>
-                            <div class="text-stone-700">
-                                <p><b>I have an Etsy shop!</b> I'm selling:</p>
-                                <p>◦ stream widgets</p>
-                                <p>◦ sub badges</p>
-                            </div>
-                        </div>
+                    <h1 class="text-2xl text-center text-white mb-4 drop-shadow-lg ">Welcome to LisadiKaprio's personal website! :)</h1>
+                    <p class="text-gray-200">Explore projects I have been creating!</p>
+                    <p class="text-gray-200">I've done all sorts of stuff...</p>
+                </div>
+                <div id="wordCloud"></div>
+                <div class="flex flex-row items-center w-64 text-xs text-stone-700 border-2 border-dashed border-stone-300 p-1">
+                    <a href="https://www.etsy.com/de-en/shop/KaprioArtShop" class="flex-shrink-0" style="transform: translateX(-12px) translateY(-24px)" target="_blank">
+                        <img src="shoplogo.png" class="inline h-24 w-24 border-2 border-stone-300 " >
+                    </a>
+                    <div class="text-stone-700">
+                        <p><b>I have an Etsy shop!</b> I'm selling:</p>
+                        <p>◦ stream widgets</p>
+                        <p>◦ sub badges</p>
                     </div>
+                </div>
                 <div class="flex flex-row border-t border-stone-300 pt-8">     
-         
                     <div class="w-52 mr-8">       
                         <div class="text-stone-500 border-2 border-stone-300 text-sm p-1">
                             <h1>latest updates</h1>
@@ -90,15 +97,16 @@
                     </div>
                 </div>
                 
-                <div class="border-t border-stone-300 pt-8">
+                <div class="border-t border-stone-300 pt-8 w-[500px]">
                     <iframe src="https://lisadikaprio.atabook.org/" width="100%" height="600px"
                         class="border-2 border-dashed border-stone-300"></iframe>
                 </div>
 
-                <div class="text-xs text-stone-500 border-t border-stone-300 mt-8">
+                <div class="text-xs text-stone-500 border-t border-stone-300 mt-8 w-[500px]">
                     <p>contact: lisadikaprio@gmail.com</p>
-                    <a href="https://github.com/adryd325/oneko.js"
-                        class="text-stone-400 hover:text-stone-600 hover:underline">cat code</a>
+                    <a href="https://science.nasa.gov/image-detail/amf-pia25019/" target="_blank">click here for background source(it's Jupiter and its moons!)</a>
+                    <!-- <a href="https://github.com/adryd325/oneko.js"
+                        class="text-stone-400 hover:text-stone-600 hover:underline">cat code</a> -->
                     <div class="font-bold text-stone-500 text-xs mt-4">
                         <p>internet friends:</p>
                         <div class="flex flex-row space-x-4">
@@ -113,6 +121,19 @@
 
 <!-- Git-Repo Updates Script -->
 <script> 
+const liloSleeping = document.getElementById('liloSleeping');
+liloSleeping.addEventListener('click', function() {
+    if (liloSleeping.src.includes("lilo-empty-bed")) {
+        window.stopAnimatingNeko();
+        liloSleeping.src = "lilo-sleeping.gif" 
+        // document.getElementById("catBedText").textContent = "<- click to wake the cat up"
+    } else {
+        window.startAnimatingNeko();
+        liloSleeping.src = "lilo-empty-bed.png" 
+        // document.getElementById("catBedText").textContent = "<- click again so she goes back to sleep :3"
+    }
+});
+
 const owner = "lisadikaprio"; 
 const repo = "lisadikaprio.github.io"; 
 const limit = 5; 
@@ -158,6 +179,225 @@ async function loadCommits() {
     } 
 } 
 loadCommits(); 
+const words = [
+    "traditional art", 
+    "digital art", 
+    { type: "image", src: "https://fc.ashrose.net/PD/png_S/0002.png", alt: "apple" },
+    "twitch streams",
+    "twitch emotes",
+    "vtubers", 
+    "stream widgets", 
+    { type: "image", src: "https://fc.ashrose.net/PD/png_S/0005.png", alt: "apple" },
+    { type: "image", src: "https://fc.ashrose.net/PD/png_S/0067.png", alt: "rose" },
+    "web development", 
+    "web games", 
+    "itch.io games",
+    "itch.io assets",
+    "game design",
+    "game art",
+    "automatic art", 
+    "abstract art", 
+    "visual novels", 
+    "visual novel assets",
+    "etsy shop with stream widgets"
+];
+
+const colors = [
+    '#FFFFFF',
+];
+
+class WordCloud3D {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.words = [];
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.centerX = this.container.clientWidth / 2;
+        this.centerY = this.container.clientHeight / 2;
+        this.radius = 250;
+        
+        // Rotation angles
+        this.rotationX = 0;
+        this.rotationY = 0;
+        this.targetRotationX = 0;
+        this.targetRotationY = 0;
+        this.isDragging = false;
+
+    // Auto-rotation
+    this.autoRotationX = 0;
+    this.autoRotationY = 0.005;  // Adjust these values to change rotation speed
+
+        this.init();
+        this.setupEventListeners();
+        this.animate();
+    }
+
+    init() {
+    words.forEach((word, index) => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'word';
+        wordEl.style.position = 'absolute';
+        wordEl.style.whiteSpace = 'nowrap';
+        wordEl.style.cursor = 'pointer';
+
+        let size = Math.random() * 2 + 37;
+
+        // Check if it's an image or text
+        if (typeof word === 'object' && word.type === 'image') {
+            const img = document.createElement('img');
+            img.src = word.src;
+            img.alt = word.alt;
+            img.style.maxWidth = '60px';  // Set a reasonable max width
+            img.style.height = 'auto';      // Keep aspect ratio
+            img.style.objectFit = 'cover';
+            img.style.borderRadius = '4px';
+            wordEl.appendChild(img);
+            wordEl.style.width = size + 'px';
+            wordEl.style.height = size + 'px';
+        } else {
+            wordEl.textContent = word;
+            wordEl.style.fontSize = size + 'px';
+            wordEl.style.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Random position on sphere
+        const phi = Math.acos(-1 + (2 * index) / words.length);
+        const theta = Math.sqrt(words.length * Math.PI) * phi;
+
+        this.words.push({
+            el: wordEl,
+            x: this.radius * Math.cos(theta) * Math.sin(phi),
+            y: this.radius * Math.sin(theta) * Math.sin(phi),
+            z: this.radius * Math.cos(phi),
+            size: size,
+            color: typeof word === 'object' ? null : (wordEl.style.color || '#FFFFFF'),
+            isImage: typeof word === 'object' && word.type === 'image'
+        });
+
+        this.container.appendChild(wordEl);
+    });
+}
+
+
+    setupEventListeners() {
+        let isOverContainer = false;
+
+        // Track when mouse enters/leaves the container
+        this.container.addEventListener('mouseenter', () => {
+            isOverContainer = true;
+        });
+
+        this.container.addEventListener('mouseleave', () => {
+            isOverContainer = false;
+            this.isDragging = false;
+        });
+
+        // Only respond to mousedown if over container
+        this.container.addEventListener('mousedown', (e) => {
+            if (isOverContainer) {
+                this.isDragging = true;
+                this.lastMouseX = e.clientX;
+                this.lastMouseY = e.clientY;
+            }
+        });
+
+        // Only respond to mousemove if over container
+        document.addEventListener('mousemove', (e) => {
+            if (!isOverContainer) return;
+
+            if (this.isDragging) {
+                const deltaX = e.clientX - this.lastMouseX;
+                const deltaY = e.clientY - this.lastMouseY;
+
+                this.targetRotationY += deltaX * 0.01;
+                this.targetRotationX += deltaY * 0.01;
+
+                this.lastMouseX = e.clientX;
+                this.lastMouseY = e.clientY;
+            }
+        });
+
+        // Stop dragging on mouseup anywhere
+        document.addEventListener('mouseup', () => {
+            this.isDragging = false;
+        });
+
+        // Only respond to scroll wheel if over container
+        this.container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            this.radius += e.deltaY * -0.1;
+            this.radius = Math.max(100, Math.min(400, this.radius));
+        });
+    }
+
+    rotatePoint(x, y, z, rotX, rotY) {
+        // Rotate around X axis
+        let cos = Math.cos(rotX);
+        let sin = Math.sin(rotX);
+        let y1 = y * cos - z * sin;
+        let z1 = y * sin + z * cos;
+
+        // Rotate around Y axis
+        cos = Math.cos(rotY);
+        sin = Math.sin(rotY);
+        let x2 = x * cos + z1 * sin;
+        let z2 = -x * sin + z1 * cos;
+
+        return { x: x2, y: y1, z: z2 };
+    }
+    animate() {
+        // Add auto-rotation when not dragging
+        if (!this.isDragging) {
+            this.targetRotationX += this.autoRotationX;
+            this.targetRotationY += this.autoRotationY;
+        }
+
+        // Smooth rotation interpolation
+        this.rotationX += (this.targetRotationX - this.rotationX) * 0.1;
+        this.rotationY += (this.targetRotationY - this.rotationY) * 0.1;
+
+        // Limit rotation to prevent over-rotation
+        this.targetRotationX = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, this.targetRotationX));
+
+        this.words.forEach(word => {
+            // Apply rotation
+            const rotated = this.rotatePoint(word.x, word.y, word.z, this.rotationX, this.rotationY);
+
+            // Perspective projection
+            const scale = (rotated.z + this.radius * 1.5) / (this.radius * 3);
+            const opacity = Math.max(0.3, scale);
+
+            // Position on screen
+            word.el.style.left = (this.centerX + rotated.x * scale) + 'px';
+            word.el.style.top = (this.centerY + rotated.y * scale) + 'px';
+word.el.style.transform = 'translate(-50%, -50%)';  // Centers the element on the point
+            word.el.style.opacity = opacity;
+            
+            if (word.isImage) {
+                word.el.style.width = (word.size * scale) + 'px';
+                word.el.style.height = (word.size * scale) + 'px';
+            } else {
+                word.el.style.fontSize = (word.size * scale) + 'px';
+            }
+            
+            word.el.style.zIndex = Math.floor(rotated.z + this.radius * 1.5);
+
+            // Only apply color to text
+            if (!word.isImage && word.color) {
+                word.el.style.color = word.color;
+            }
+        });
+
+        requestAnimationFrame(() => this.animate());
+    }
+
+}
+
+// Initialize when page loads
+window.addEventListener('load', () => {
+    new WordCloud3D('wordCloud');
+});
+
 </script>
 
 </body>

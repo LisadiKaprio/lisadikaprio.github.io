@@ -20,6 +20,8 @@
   let idleAnimation = null;
   let idleAnimationFrame = 0;
 
+  let playAnimation = false;
+
   const nekoSpeed = 10;
   const spriteSets = {
     idle: [[-3, -3]],
@@ -95,6 +97,7 @@
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
     nekoEl.style.zIndex = 2147483647;
+    nekoEl.style.opacity = 0;
 
     let nekoFile = "/oneko.gif"
     const curScript = document.currentScript
@@ -110,10 +113,27 @@
       mousePosY = event.clientY;
     });
 
-    window.requestAnimationFrame(onAnimationFrame);
+    if(playAnimation) {
+      window.requestAnimationFrame(onAnimationFrame);
+    }
   }
 
   let lastFrameTimestamp;
+
+  function startAnimating() {
+    nekoPosX = event.clientX;
+    nekoPosY = event.clientY;
+    nekoEl.style.left = `${nekoPosX - 16}px`;
+    nekoEl.style.top = `${nekoPosY - 16}px`;
+    playAnimation = true;
+    nekoEl.style.opacity = 100;
+    window.requestAnimationFrame(onAnimationFrame);
+  }
+
+  function stopAnimating() {
+    playAnimation = false;
+    nekoEl.style.opacity = 0;
+  }
 
   function onAnimationFrame(timestamp) {
     // Stops execution if the neko element is removed from DOM
@@ -127,7 +147,9 @@
       lastFrameTimestamp = timestamp
       frame()
     }
-    window.requestAnimationFrame(onAnimationFrame);
+    if (playAnimation) {
+      window.requestAnimationFrame(onAnimationFrame);
+    }
   }
 
   function setSprite(name, frame) {
@@ -236,4 +258,6 @@
   }
 
   init();
+window.startAnimatingNeko = startAnimating;
+window.stopAnimatingNeko = stopAnimating;
 })();

@@ -11,6 +11,40 @@
   src: url("./fonts/Ballet.ttf") format("truetype");
 }
 
+.jupiter-bg-1 {
+    background-image: url(./images-from-the-internet/nasa-juno-jupiter.jpg);
+}
+
+.moon-artemis-soft-bg {
+    background-image: url(./images-from-the-internet/moon-artemis-mission-soft.jpg);
+    background: rgba(1,4,12) url('./images-from-the-internet/moon-artemis-mission-soft.jpg') no-repeat top;
+}
+
+
+        #wordCloud {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            /* perspective: 1000px; */
+        }
+
+        .word {
+    font-family: "Courier New", monospace;
+            position: absolute;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            font-weight: bold;
+            transition: all 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        .word:hover {
+            filter: brightness(0.9);
+            transform: scale(1.05);
+        }
+
+
 .shine{
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.75);
 }
