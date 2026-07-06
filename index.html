@@ -7,6 +7,7 @@
     <title>LisadiKaprio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="3dcube.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 
@@ -16,15 +17,15 @@
     <div class="min-h-screen jupiter-bg-1  text-stone-900">
         <header class="border-b border-stone-300 jupiter-bg-1  bg-stone-100">
             <div class="max-w-4xl mx-auto px-4 py-4">
-                <nav class="flex flex-row gap-6 text-sm  text-gray-300 justify-between">
+                <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
                     <div>
                         [<a href="index.html" class="font-mono underline">about</a>]
                         [<a href="gallery.html"
-                            class="font-mono text-white hover:text-gray-300 hover:underline">
+                            class="font-mono text-gray-300  hover:text-white hover:underline">
                             gallery
                         </a>]
                         [<a href="archive.html"
-                            class="font-mono text-white hover:text-gray-300 hover:underline">
+                            class="font-mono text-gray-300  hover:text-white hover:underline">
                             archive
                         </a>]
                     </div>
@@ -44,14 +45,158 @@
                     <p class="text-gray-200">I've done all sorts of stuff...</p>
                 </div>
                 <div id="wordCloud"></div>
-                <div class="flex flex-row items-center w-64 text-xs text-stone-700 border-2 border-dashed border-stone-300 p-1">
-                    <a href="https://www.etsy.com/de-en/shop/KaprioArtShop" class="flex-shrink-0" style="transform: translateX(-12px) translateY(-24px)" target="_blank">
-                        <img src="shoplogo.png" class="inline h-24 w-24 border-2 border-stone-300 " >
+                <div class="grid grid-cols-3 gap-4">
+                    <a class="flex flex-col items-center justify-center p-4" href="https://kaprioartshop.etsy.com" target="_blank">
+                        <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
+                            <div class="cube" style="animation-delay: -2s;">
+                                <div class="cube-face front">
+                                <img src="shoplogo.png" alt="">
+                                </div>
+                                <div class="cube-face back">
+                                <img src="shoplogo.png" alt="">
+                                </div>
+                                <div class="cube-face right">
+                                <img src="shoplogo.png" alt="">
+                                </div>
+                                <div class="cube-face left">
+                                <img src="shoplogo.png" alt="">
+                                </div>
+                                <div class="cube-face top">
+                                <img src="shoplogo.png" alt="">
+                                </div>
+                                <div class="cube-face bottom">
+                                <img src="shoplogo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="font-bold drop-shadow-xl text-amber-900 opacity-75 pt-2" style="filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.8));">Etsy shop</h3>
                     </a>
-                    <div class="text-stone-700">
-                        <p><b>I have an Etsy shop!</b> I'm selling:</p>
-                        <p>◦ stream widgets</p>
-                        <p>◦ sub badges</p>
+                    <a class="flex flex-col items-center justify-center p-4" href="https://lisadikaprio.itch.io" target="_blank">
+                        <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
+                            <div class="cube">
+                                <div class="cube-face front">
+                                <img src="little-images/itchio-1.png" alt="">
+                                </div>
+                                <div class="cube-face back">
+                                <img src="little-images/itchio-2.png" alt="">
+                                </div>
+                                <div class="cube-face right">
+                                <img src="little-images/itchio-3.png" alt="">
+                                </div>
+                                <div class="cube-face left">
+                                <img src="little-images/itchio-4.png" alt="">
+                                </div>
+                                <div class="cube-face top">
+                                <img src="little-images/itchio-5.png" alt="">
+                                </div>
+                                <div class="cube-face bottom">
+                                <img src="little-images/itchio-6.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="font-bold drop-shadow-xl text-amber-900 opacity-75 pt-2" style="filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.8));">My itch.io page</h3>
+                    </a>
+                    
+                    <a class="flex flex-col items-center justify-center p-4" href="https://www.artstation.com/lisadikaprio" target="_blank">
+                        <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
+                            <div class="cube" style="animation-delay: -4s;">
+                                <div class="cube-face front">
+                                <img src="little-images/artstation-1.png" alt="">
+                                </div>
+                                <div class="cube-face back">
+                                <img src="little-images/artstation-2.png" alt="">
+                                </div>
+                                <div class="cube-face right">
+                                <img src="little-images/artstation-3.png" alt="">
+                                </div>
+                                <div class="cube-face left">
+                                <img src="little-images/artstation-4.png" alt="">
+                                </div>
+                                <div class="cube-face top">
+                                <img src="little-images/artstation-5.png" alt="">
+                                </div>
+                                <div class="cube-face bottom">
+                                <img src="little-images/artstation-6.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="font-bold drop-shadow-xl text-amber-900 opacity-75 pt-2" style="filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.8));">My Artstation</h3>
+                    </a>
+                    
+                    <a class="flex flex-col items-center justify-center p-4" href="https://github.com/LisadiKaprio/" target="_blank">
+                        <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
+                            <div class="cube" style="animation-delay: -8s;">
+                                <div class="cube-face front">
+                                <img src="little-images/github.png" alt="">
+                                </div>
+                                <div class="cube-face back">
+                                <img src="little-images/github.png" alt="">
+                                </div>
+                                <div class="cube-face right">
+                                <img src="little-images/github.png" alt="">
+                                </div>
+                                <div class="cube-face left">
+                                <img src="little-images/github.png" alt="">
+                                </div>
+                                <div class="cube-face top">
+                                <img src="little-images/github.png" alt="">
+                                </div>
+                                <div class="cube-face bottom">
+                                <img src="little-images/github.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="font-bold drop-shadow-xl text-amber-900 opacity-75 pt-2" style="filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.8));">My Github</h3>
+                    </a>
+                    
+                    <a class="flex flex-col items-center justify-center p-4" href="https://chromewebstore.google.com/detail/minecraft-server-friends/ingcbbfocjjffhgpojgfbdhgakghjbdk" target="_blank">
+                        <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
+                            <div class="cube" style="animation-delay: -4s;">
+                                <div class="cube-face front">
+                                <img src="little-images/chrome-extension-1.png" alt="">
+                                </div>
+                                <div class="cube-face back">
+                                <img src="little-images/chrome-extension-2.png" alt="">
+                                </div>
+                                <div class="cube-face right">
+                                <img src="little-images/chrome-extension-3.png" alt="">
+                                </div>
+                                <div class="cube-face left">
+                                <img src="little-images/chrome-extension-4.png" alt="">
+                                </div>
+                                <div class="cube-face top">
+                                <img src="little-images/chrome-extension-1.png" alt="">
+                                </div>
+                                <div class="cube-face bottom">
+                                <img src="little-images/chrome-extension-2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center font-bold drop-shadow-xl text-amber-900 text-sm opacity-75 pt-2" style="filter: drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.8));">My Minecraft Chrome extension</p>
+                    </a>
+                    <div class="flex flex-col items-center justify-center p-4">
+                        <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
+                            <div class="cube" style="animation-delay: 0s;">
+                                <div class="cube-face front">
+                                <img src="https://media.tenor.com/WrV9P01NutAAAAAM/cat-pet.gif"alt="">
+                                </div>
+                                <div class="cube-face back">
+                                <img src="https://media.tenor.com/WrV9P01NutAAAAAM/cat-pet.gif"alt="">
+                                </div>
+                                <div class="cube-face right">
+                                <img src="https://media.tenor.com/WrV9P01NutAAAAAM/cat-pet.gif"alt="">
+                                </div>
+                                <div class="cube-face left">
+                                <img src="https://media.tenor.com/WrV9P01NutAAAAAM/cat-pet.gif"alt="">
+                                </div>
+                                <div class="cube-face top">
+                                <img src="https://media.tenor.com/WrV9P01NutAAAAAM/cat-pet.gif"alt="">
+                                </div>
+                                <div class="cube-face bottom">
+                                <img src="https://media.tenor.com/WrV9P01NutAAAAAM/cat-pet.gif"alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="flex flex-row border-t border-stone-300 pt-8">     
@@ -183,23 +328,24 @@ const words = [
     "traditional art", 
     "digital art", 
     { type: "image", src: "https://fc.ashrose.net/PD/png_S/0002.png", alt: "apple" },
-    "twitch streams",
     "twitch emotes",
-    "vtubers", 
+    "vtuber models", 
     "stream widgets", 
     { type: "image", src: "https://fc.ashrose.net/PD/png_S/0005.png", alt: "apple" },
     { type: "image", src: "https://fc.ashrose.net/PD/png_S/0067.png", alt: "rose" },
     "web development", 
     "web games", 
     "itch.io games",
-    "itch.io assets",
+    "itch.io game assets",
     "game design",
     "game art",
     "automatic art", 
     "abstract art", 
     "visual novels", 
     "visual novel assets",
-    "etsy shop with stream widgets"
+    "etsy shop with stream widgets",
+    "one chrome extension",
+    "Neuro-sama fanart"
 ];
 
 const colors = [
