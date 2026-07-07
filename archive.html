@@ -12,6 +12,17 @@
 </head>
 <body class="font-mono antialiased">
     <script src="/oneko.js"></script>
+    <style>
+        .rotated-iframe {
+            position: absolute;
+    top: 22%;
+    right: 9%;
+            transform: rotate(30deg);
+            width: 560px;
+            height: 100px;
+    overflow: hidden;
+        }
+    </style>
     <div class="min-h-screen bg-stone-50 text-stone-900">
         <header class="border-b border-stone-300 bg-stone-100">
             <div class="thin-strip achilles"></div>
@@ -122,7 +133,23 @@
             <!-- <div class="gallery-footer">
                 <p class="gallery-footer-text">oh hi there :)</p>
             </div> -->
+            
         </main>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="relative w-full max-w-4xl">
+            <!-- Background Image -->
+            <img 
+                src="drawings/der-geist-aber-nicht.png" 
+                class="w-full h-auto"
+            >
+            <iframe 
+                src="/html-js-snippets/der-geist-aber-nicht.html"
+                class="rotated-iframe"
+                allowfullscreen
+                loading="lazy"
+            ></iframe>
+        </div>
+    </div>
             <div class="thin-strip achilles"></div>
     </div>
 </body>

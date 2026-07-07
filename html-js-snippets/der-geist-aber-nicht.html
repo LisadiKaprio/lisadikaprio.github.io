@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2+2=5</title>
+<style>
+  body{
+    overflow: hidden;margin:0;padding:0px;
+    min-height:100vh;color:#000;}
+  #grid{display:grid;}
+  .cell{width:46px;height:32px;display:flex;align-items:center;justify-content:center;transform: rotate(9deg); font-weight: bold;}
+  .on span{font-size:7px;line-height:1;white-space:nowrap;}
+  .off{visibility:hidden;}
+</style>
+</head>
+<body>
+<div id="grid"></div>
+<script>
+// 5x7 pixel font, 1=on
+const FONT = {
+"2":["01110","10001","00001","00010","00100","01000","11111"],
+"+":["00000","00100","00100","11111","00100","00100","00000"],
+"=":["00000","00000","11111","00000","11111","00000","00000"],
+"5":["11111","10000","11110","00001","00001","10001","01110"]
+};
+const WORD = ["2","+","2","=","5"];
+
+function randSentence(){
+  const a=Math.floor(Math.random()*9 + 1);
+  const b=Math.floor(Math.random()*9 + 1);
+  const ops=["+","-","x"];
+  const op=ops[Math.floor(Math.random()*3)];
+  let r;
+  if(op==="+")r=a+b; else if(op==="-")r=a-b; else r=a*b;
+  return a+op+b+"="+r;
+}
+
+// build bit matrix: 7 rows, each row is string of 0/1 across whole word (with 1 col gap between chars)
+let rows = ["","","","","","",""];
+WORD.forEach((ch,ci)=>{
+  const pat = FONT[ch];
+  for(let y=0;y<7;y++){
+    rows[y]+=pat[y];
+    if(ci<WORD.length-1) rows[y]+="0"; // spacer col
+  }
+});
+
+const totalCols = rows[0].length;
+const grid = document.getElementById("grid");
+grid.style.gridTemplateColumns = "repeat("+totalCols+", 18px)";
+grid.style.gridTemplateRows = "repeat(7, 12px)"
+
+for(let y=0;y<7;y++){
+  for(let x=0;x<totalCols;x++){
+    const cell=document.createElement("div");
+    cell.className="cell";
+    if(rows[y][x]==="1"){
+      cell.classList.add("on");
+      const span=document.createElement("span");
+      span.textContent=randSentence();
+      cell.appendChild(span);
+      (function tick(){
+        const delay=800+Math.random()*2500;
+        setTimeout(()=>{
+          span.textContent=randSentence();
+          tick();
+        },delay);
+      })();
+    } else {
+      cell.classList.add("off");
+    }
+    grid.appendChild(cell);
+  }
+}
+</script>
+</body>
+</html>
