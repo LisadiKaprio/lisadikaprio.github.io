@@ -16,11 +16,15 @@
     <script src="/oneko.js"></script>
     <div class="min-h-screen jupiter-bg-1  text-stone-900">
         <header class="border-b border-stone-300 jupiter-bg-1  bg-stone-100">
-            <div class="thin-strip theo-schildkroete"></div>
+            <div class="thin-strip theo-schildkroete">
+                <!-- <div class="thin-strip-header uppercase bg-[#efd09e] text-center italic font-black">LisadiKaprio</div> -->
+            </div>
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
                     <div>
-                        [<a href="index.html" class="font-mono underline">about</a>]
+                        [<a href="index.html" class="font-mono underline">
+                            about
+                        </a>]
                         [<a href="gallery.html"
                             class="font-mono text-gray-300  hover:text-white hover:underline">
                             gallery
@@ -40,12 +44,11 @@
         <main class="max-w-2xl mx-auto px-4 py-12">
             <div class="space-y-8 flex flex-col items-center">
                 <div class="flex-grow-1 text-center space-y-4 p-4" flex-grow-1 mr-8 space-y-4 text-center leading-relaxed">
-                    
                     <h1 class="text-2xl text-center text-white mb-4 drop-shadow-lg ">Welcome to LisadiKaprio's personal website! :)</h1>
                     <p class="text-gray-200">Explore projects I have been creating!</p>
                     <p class="text-gray-200">I've done all sorts of stuff...</p>
                 </div>
-                <div id="wordCloud"></div>
+                <div id="wordCloud" draggable="false" style="user-select: none;"></div>
                 <div class="grid grid-cols-3 gap-4">
                     <a class="flex flex-col items-center justify-center p-4" href="https://kaprioartshop.etsy.com" target="_blank">
                         <div class="cube-container" id="cube-etsy" style="filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));">
@@ -525,6 +528,8 @@ word.el.style.transform = 'translate(-50%, -50%)';  // Centers the element on th
             if (word.isImage) {
                 word.el.style.width = (word.size * scale) + 'px';
                 word.el.style.height = (word.size * scale) + 'px';
+                word.el.style.userSelect = 'none';
+                word.el.style.pointerEvents = 'none';
             } else {
                 word.el.style.fontSize = (word.size * scale) + 'px';
             }

@@ -3,9 +3,18 @@
   background-size: auto 30px;
   background-repeat: repeat-x;
   background-position: 0 0;
-  filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.1))
+  filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.1));
+  position: relative;
 }
-
+.thin-strip-header {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 6px 18px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
 .achilles {
   background-image: url('achilles.png');
 }
