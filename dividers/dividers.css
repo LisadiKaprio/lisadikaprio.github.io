@@ -1,0 +1,20 @@
+.thin-strip {
+  height: 30px;
+  background-size: auto 30px;
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.1))
+}
+
+.achilles {
+  background-image: url('achilles.png');
+}
+.ameisenbaer {
+  background-image: url('ameisenbaer.png');
+}
+.carl-krebs {
+  background-image: url('carl-krebs.png');
+}
+.theo-schildkroete {
+  background-image: url('theo-schildkroete.png');
+}

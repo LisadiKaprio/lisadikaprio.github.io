@@ -7,12 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/static/neko/neko.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/dividers/dividers.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body class="font-mono antialiased">
+    <style>
+        .gallery-item {
+            transition: all 0.5s ease-out;
+            transform-style: preserve-3d;
+        }
+    </style>
     <script src="/oneko.js"></script>
     <div class="min-h-screen bg-stone-50 text-stone-900">
         <header class="border-b border-stone-300 bg-stone-100">
+            <div class="thin-strip carl-krebs"></div>
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <nav class="flex gap-6 text-sm">
                     <a href="index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">about</a>
@@ -480,6 +488,24 @@
                 <p class="gallery-footer-text">oh hi there :)</p>
             </div> -->
         </main>
+        
+            <div class="thin-strip carl-krebs"></div>
     </div>
 </body>
+<script>
+  const items = document.querySelectorAll('.gallery-item').forEach(parallax => {
+  parallax.addEventListener('mousemove', (e) => {
+    const rect = parallax.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const depth = 0.6;
+      parallax.style.transform = `translate(${x * 50 * depth}px, ${y * 50 * depth}px)`;
+  });
+  
+  parallax.addEventListener('mouseleave', () => {
+    parallax.style.transform = 'translate(0, 0)';
+  });
+})
+  
+</script>
 </html>
