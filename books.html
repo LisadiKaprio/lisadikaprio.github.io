@@ -72,6 +72,7 @@
     </style>
 </head>
 <body class="font-mono antialiased">
+    <script src="/oneko.js"></script>
     <!-- <script src="/oneko.js"></script> -->
     <div class="min-h-screen jupiter-bg-1 text-stone-900">
         <header class="border-b border-stone-300 bg-stone-100 jupiter-bg-1">
@@ -411,5 +412,19 @@ books_nonfiction.slice().forEach(book => {
 books_fiction.slice().forEach(book => {
     addBook(book, fictionShelf)
 })
+
+
+const liloSleeping = document.getElementById('liloSleeping');
+liloSleeping.addEventListener('click', function() {
+    if (liloSleeping.src.includes("lilo-empty-bed")) {
+        window.stopAnimatingNeko();
+        liloSleeping.src = "lilo-sleeping.gif" 
+        // document.getElementById("catBedText").textContent = "<- click to wake the cat up"
+    } else {
+        window.startAnimatingNeko();
+        liloSleeping.src = "lilo-empty-bed.png" 
+        // document.getElementById("catBedText").textContent = "<- click again so she goes back to sleep :3"
+    }
+});
 </script>
 </html>
