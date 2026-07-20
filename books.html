@@ -7,83 +7,372 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+    .section-header {
+        margin: 0;
+        color: black;
+        filter: drop-shadow(0 0 3px black);
+        background-color: #d1d5db;
+        padding: 6px 12px;
+        transform: translateY(24px);
+    }
+
+    .black-border {
+        border: 2px rgb(0, 0, 0) solid;
+    }
+
+    .bookshelf {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background-color: #b39383;
+        width: 800px
+    }
+
+    .shelf {
+        background-color: #8f8591;
+        padding: 0 ;
+        margin: 4px;
+        display: flex; 
+        flex-direction: row; 
+        align-items: flex-end; 
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .between-shelves {
+        background-color: #b39383;
+        display: flex;
+        align-items: center;
+        padding-left: 24px;
+        height: 36px;
+    }
+
+    .inset-border {
+        border: inset #b39383 10px;
+    }
+
+    .outset-border {
+        border: outset #b39383 10px;
+    }
+
+    .no-bottom-border {
+        border-bottom: 0px;
+    }
+
+    #tooltip {
+        position: fixed;
+        pointer-events: none;
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 6px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+    </style>
 </head>
 <body class="font-mono antialiased">
     <!-- <script src="/oneko.js"></script> -->
-    <div class="min-h-screen bg-stone-50 text-stone-900">
-        <header class="border-b border-stone-300 bg-stone-100">
+    <div class="min-h-screen jupiter-bg-1 text-stone-900">
+        <header class="border-b border-stone-300 bg-stone-100 jupiter-bg-1">
             <div class="max-w-4xl mx-auto px-4 py-4">
-                <nav class="flex gap-6 text-sm">
-                    <a href="index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline" >about</a>
-                    <a href="gallery.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">gallery</a>
-                    <a href="archive.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">archive</a>
+                <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
+                    <div>
+                        [<a href="index.html" class="font-mono text-gray-300  hover:text-white hover:underline">
+                            about
+                        </a>]
+                        [<a href="gallery.html"
+                            class="font-mono text-gray-300  hover:text-white hover:underline">
+                            gallery
+                        </a>]
+                        [<a href="archive.html"
+                            class="font-mono text-gray-300  hover:text-white hover:underline">
+                            archive
+                        </a>]
+                    </div>
+                    <div class="text-gray-200 flex flex-row space-x-3 items-end">
+                        <p id="catBedText">click the cat ✮˚.⋆ →</p>
+                        <img id="liloSleeping" src="lilo-sleeping.gif" style="display:inline" ></img>
+                    </div>
                 </nav>
             </div>
         </header>
-      <main class="max-w-7xl mx-auto px-4 py-8 ">
+      <main class="max-w-7xl px-auto pt-8">
             <a href="/index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline"><<< back</a>
             <div class="mb-8 text-center">
                 <h1 class="text-xl font-mono mb-2">digital bookshelf</h1>
-                <p class="text-sm text-stone-600">recently read books and graphic novels 2025-2026, most recent at the top</p>
-                <p class="text-sm text-stone-600">click on a book to copy author + title to clipboard</p>
+                <p class="text-sm text-grey-600">2025-2026</p>
+                <p class="text-sm text-grey-600">click on a book to copy author + title to clipboard</p>
+            </div>
+                
+            <div class="flex justify-center" style="margin-left: -80px; margin-bottom: -20px;">
+                <img src="books-pngs/cup.png" style="width: auto; height: auto; flex-shrink: 0;" alt="steaming cup">
             </div>
             <div class="flex row justify-center items-end">
-                <div class="flex justify-center">
-                    <div id="books-container"></div>
-                    <div id="tooltip"></div>
-                </div>
-                <div class="flex justify-center" style="margin-left: -80px; margin-bottom: -20px;">
-                    <img src="books-pngs/cup.png" style="width: auto; height: auto; flex-shrink: 0;" alt="steaming cup">
+            <div id="tooltip"></div>
+                <div class="black-border bookshelf-container">
+                    <div class="bookshelf outset-border">
+                            <div class="between-shelves">
+                                <div class="section-header">
+                                    <h2>Graphic Novels</h2>
+                                </div>
+                            </div>
+                        <p id="shelf-comics" class="shelf inset-border "> </p>
+                            <div class="between-shelves">
+                                <div class="section-header">
+                                    <h2>Non-Fiction</h2>
+                                </div>
+                            </div>
+                        <p id="shelf-non-fiction" class="shelf inset-border"> </p>
+                            <div class="between-shelves">
+                                <div class="section-header">
+                                    <h2>Fiction</h2>
+                                </div>
+                            </div>
+                        <p id="shelf-fiction" class="shelf inset-border"> </p>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 </body>
 <script>
-const books = [
-  { img: "book-0-1.png", title: "Der Brief für den König", author: "Tonke Dragt" },
-  { img: "book-0-2.png", title: "Der Fremde", author: "Albert Camus" },
-  { img: "book-1.png", title: "Zwanghaft", author: "David Adam" },
-  { img: "book-2.png", title: "True Crime in Nature", author: "Farina Grassmann" },
-  { img: "book-3.png", title: "Der elektronische Spiegel", author: "Manuela Lenzen" },
-  { img: "book-4.png", title: "This Way Up", author: "Map Men" },
-  { img: "book-5.png", title: "The Courage to Be Disliked", author: "Ichiro Kishimi, Fumitake Koga" },
-  { img: "book-6.png", title: "The Courage to Be Happy", author: "Ichiro Kishimi, Fumitake Koga" },
-  { img: "book-7.png", title: "Menschenkenntnis", author: "Alfred Adler" },
-  { img: "book-8.png", title: "(short stories)", author: "Ted Chiang" },
-  { img: "book-9.png", title: "Nekropolis", author: "Boris Pahor, Jurij Devetak" },
-  { img: "book-10.png", title: "Ducks", author: "Kate Beaton" },
-  { img: "book-11.png", title: "Die Kunst des Liebens", author: "Erich Fromm" },
-  { img: "book-12.png", title: "Per Anhalter durch die Galaxis", author: "Douglas Adams" },
-  { img: "book-13.png", title: "Der Krieg der Welten", author: "H.G. Wells, Thilo Krapp" },
-  { img: "book-14.png", title: "Haben oder Sein", author: "Erich Fromm" },
-  { img: "book-17.png", title: "Das Restaurant am Ende des Universums", author: "Douglas Adams" },
-  { img: "book-15.png", title: "Die Wandernde Erde", author: "Cixin Liu, Christophe Bec, Stefano Raffaele" },
-  { img: "book-16.png", title: "Der Verschlinger", author: "Cixin Liu, Jean-David Morvan, Yang Wie-Lin" },
-  { img: "book-19.png", title: "Amalia", author: "Aude Picault" },
-  { img: "book-22.png", title: "Бегство от свободы", author: "Эрих Фромм" },
-  { img: "book-20.png", title: "Das Leben, das Universum und der ganze Rest", author: "Douglas Adams" },
-  { img: "book-21.png", title: "In 80 Tagen um die Welt (Graphic Novel nach Jules Verne)", author: "Younn Locard, Jean-Michel Coblence" },
-  { img: "book-28.png", title: "Šetač: The Director's Cut Edition", author: "Jiro Taniguchi" },
-  { img: "book-23.png", title: "The Encyclopedia of the weird and wonderful", author: "Milo Rossi" },
-  { img: "book-24.png", title: "Sonnenseiten", author: "Ana Penyas" },
-  { img: "book-25.png", title: "Yuanyuan's Blasen", author: "Cixin Liu, Valérie Mangin, Steven Dupré" },
-  { img: "book-29.png", title: "Bloody Mary", author: "Kristina Gehrmann" },
-  { img: "book-27.png", title: "Eine kurze Geschichte von fast allem", author: "Bill Bryson" },
-  { img: "book-26.png", title: "Sapiens", author: "Yuval Noah Harari" },
-   { img: "book-30.png", title: "Der Dorflehrer", author: "Cixin Liu, Zhang Xiaoyu" },
+const books_fiction = [
+  { 
+    img: "book-0-1.png", 
+    title: "Der Brief für den König", 
+    author: "Tonke Dragt",
+},
+  { 
+    img: "book-0-2.png", 
+    title: "Der Fremde", 
+    author: "Albert Camus" ,
+},
+  { 
+    img: "book-8.png", 
+    title: "(short stories)", 
+    author: "Ted Chiang" 
+},
+  { 
+    img: "book-12.png", 
+    title: "Per Anhalter durch die Galaxis", 
+    author: "Douglas Adams" 
+},
+  { 
+    img: "book-17.png", 
+    title: "Das Restaurant am Ende des Universums", 
+    author: "Douglas Adams" 
+},
+  { 
+    img: "book-20.png", 
+    title: "Das Leben, das Universum und der ganze Rest", 
+    author: "Douglas Adams" 
+},
+  { 
+    img: "book-42.png", 
+    title: "Ikebana; Und plötzlich ein Mord", 
+    author: "Werner Steinberg" 
+},
+  { 
+    img: "book-37.png", 
+    title: "Planet der Affen", 
+    author: "Pierre Boulle" 
+},
 ]
 
-const container = document.getElementById("books-container")
+const books_nonfiction = [
+  { 
+    img: "book-1.png", 
+    title: "Zwanghaft", 
+    author: "David Adam" ,
+},
+  { 
+    img: "book-2.png", 
+    title: "True Crime in Nature", 
+    author: "Farina Grassmann" 
+},
+  { 
+    img: "book-3.png", 
+    title: "Der elektronische Spiegel", 
+    author: "Manuela Lenzen" 
+},
+  { 
+    img: "book-4.png", 
+    title: "This Way Up", 
+    author: "Map Men" 
+},
+  { 
+    img: "book-5.png", 
+    title: "The Courage to Be Disliked", 
+    author: "Ichiro Kishimi, Fumitake Koga" 
+},
+  { 
+    img: "book-6.png", 
+    title: "The Courage to Be Happy", 
+    author: "Ichiro Kishimi, Fumitake Koga" 
+},
+  { 
+    img: "book-7.png", 
+    title: "Menschenkenntnis", 
+    author: "Alfred Adler" 
+},
+  { 
+    img: "book-11.png", 
+    title: "Die Kunst des Liebens", 
+    author: "Erich Fromm" 
+},
+  { 
+    img: "book-14.png", 
+    title: "Haben oder Sein", 
+    author: "Erich Fromm" 
+},
+  { 
+    img: "book-22.png", 
+    title: "Бегство от свободы", 
+    author: "Эрих Фромм" 
+},
+  { 
+    img: "book-23.png", 
+    title: "The Encyclopedia of the weird and wonderful", 
+    author: "Milo Rossi" 
+},
+  { 
+    img: "book-27.png", 
+    title: "Eine kurze Geschichte von fast allem", 
+    author: "Bill Bryson" 
+},
+  { 
+    img: "book-26.png", 
+    title: "Sapiens", 
+    author: "Yuval Noah Harari" 
+},
+  { 
+    img: "book-34.png", 
+    title: "Und jetzt das Wetter", 
+    author: "Silke Hansen" 
+},
+  { 
+    img: "book-35.png", 
+    title: "Kat Menschiks und des Diplom-Biologen Doctor Rerum Medicinalium Mark Beneckes Illustrirtes Thierleben", 
+    author: "" 
+},
+  { 
+    img: "book-39.png", 
+    title: "Gödel, Escher, Bach: Ein endloses geflochtenes Band", 
+    author: "Douglas R. Hofstadter" 
+},
+  { 
+    img: "book-40.png", 
+    title: "Das geheime Bewusstsein der Pflanzen", 
+    author: "Joseph Scheppach" 
+},
+//   { 
+//     img: "book-41.png", 
+//     title: "Ein (bisschen) Weltall für alle", 
+//     author: "Rabbea Rogge" 
+// },
+]
+
+const comics = [
+  { 
+    img: "book-9.png", 
+    title: "Nekropolis", 
+    author: "Boris Pahor, Jurij Devetak" 
+},
+  { 
+    img: "book-10.png", 
+    title: "Ducks", 
+    author: "Kate Beaton" 
+},
+  { 
+    img: "book-13.png", 
+    title: "Der Krieg der Welten", 
+    author: "H.G. Wells, Thilo Krapp" 
+},
+  { 
+    img: "book-15.png", 
+    title: "Die Wandernde Erde", 
+    author: "Cixin Liu, Christophe Bec, Stefano Raffaele" 
+},
+  { 
+    img: "book-16.png", 
+    title: "Der Verschlinger", 
+    author: "Cixin Liu, Jean-David Morvan, Yang Wie-Lin" 
+},
+  { 
+    img: "book-25.png", 
+    title: "Yuanyuan's Blasen", 
+    author: "Cixin Liu, Valérie Mangin, Steven Dupré" 
+},
+  { 
+    img: "book-30.png", 
+    title: "Der Dorflehrer", 
+    author: "Cixin Liu, Zhang Xiaoyu" 
+},
+  { 
+    img: "book-31.png", 
+    title: "Meer der Träume", 
+    author: "Cixin Liu, Rodolfo Santullo" 
+},
+  { 
+    img: "book-19.png", 
+    title: "Amalia", 
+    author: "Aude Picault" 
+},
+  { 
+    img: "book-21.png", 
+    title: "In 80 Tagen um die Welt (Graphic Novel nach Jules Verne)", 
+    author: "Younn Locard, Jean-Michel Coblence" 
+},
+  { 
+    img: "book-28.png", 
+    title: "Šetač: The Director's Cut Edition", 
+    author: "Jiro Taniguchi" 
+},
+  { 
+    img: "book-24.png", 
+    title: "Sonnenseiten", 
+    author: "Ana Penyas" 
+},
+  { 
+    img: "book-29.png", 
+    title: "Bloody Mary", 
+    author: "Kristina Gehrmann" 
+},
+  { 
+    img: "book-32.png", 
+    title: "Mein Freund Pierrot", 
+    author: "Jon Bishop" 
+},
+  { 
+    img: "book-33.png", 
+    title: "Das Labyrinth", 
+    author: "Simon Stålenhag" 
+},
+  { 
+    img: "book-36.png", 
+    title: "Wie ein leeres Blatt", 
+    author: "Pénélope Bagieu" 
+},
+  { 
+    img: "book-38.png", 
+    title: "Parallel", 
+    author: "Matthias Lehmann" 
+},
+]
+
+const comicsShelf = document.getElementById("shelf-comics");
+const nonFictionShelf = document.getElementById("shelf-non-fiction");
+const fictionShelf = document.getElementById("shelf-fiction");
 const tooltip = document.getElementById("tooltip")
 
-container.style.display = "flex"
-container.style.flexDirection = "column"
-container.style.gap = "0"
+// container.style.display = "flex"
+// container.style.flexDirection = "column"
+// container.style.gap = "0"
 
 tooltip.style.display = "none"
 
-books.slice().reverse().forEach(book => {
+function addBook(book, targetShelfElement)  {
   const img = document.createElement("img")
   img.src = "books-pngs/" + book.img
   img.classList.add("book")
@@ -108,33 +397,19 @@ books.slice().reverse().forEach(book => {
     setTimeout(() => tooltip.textContent = text, 850)
   })
 
+  targetShelfElement.appendChild(img)
+}
 
-  container.appendChild(img)
+comics.slice().forEach(book => {
+    addBook(book, comicsShelf)
+})
+
+books_nonfiction.slice().forEach(book => {
+    addBook(book, nonFictionShelf)
+})
+
+books_fiction.slice().forEach(book => {
+    addBook(book, fictionShelf)
 })
 </script>
-
-<style>
-
-.books-container {
-    display: flex;
-    flex-direction: column;
-    gap:0;
-}
-
-.book{
-    flex: 0 0 auto;
-    align-self: flex-start;
-    cursor:pointer;
-}
-
-#tooltip {
-    position: fixed;
-    pointer-events: none;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 6px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-</style>
 </html>
