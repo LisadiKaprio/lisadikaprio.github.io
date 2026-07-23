@@ -45,7 +45,9 @@
         display: flex;
         align-items: center;
         padding-left: 24px;
-        height: 36px;
+        height: 16px;
+        border: ridge #cfae9d 8px;
+        margin: 12px;
     }
 
     .inset-border {
@@ -74,7 +76,7 @@
 <body class="font-mono antialiased">
     <script src="/oneko.js"></script>
     <!-- <script src="/oneko.js"></script> -->
-    <div class="min-h-screen jupiter-bg-1 text-stone-900">
+    <div class="min-h-screen min-w-[900px] jupiter-bg-1 text-stone-900">
         <header class="border-b border-stone-300 bg-stone-100 jupiter-bg-1">
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
@@ -99,6 +101,7 @@
             </div>
         </header>
       <main class="max-w-7xl px-auto pt-8">
+        <!-- i know i have a back button here. i didn't forget -->
             <a href="/index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline"><<< back</a>
             <div class="mb-8 text-center">
                 <h1 class="text-xl font-mono mb-2">digital bookshelf</h1>
