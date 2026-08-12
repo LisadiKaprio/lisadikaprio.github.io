@@ -38,6 +38,7 @@
         align-items: flex-end; 
         justify-content: flex-start;
         gap: 0;
+        min-height: 475px;
     }
 
     .between-shelves {
@@ -76,8 +77,8 @@
 <body class="font-mono antialiased">
     <script src="/oneko.js"></script>
     <!-- <script src="/oneko.js"></script> -->
-    <div class="min-h-screen min-w-[900px] jupiter-bg-1 text-stone-900">
-        <header class="border-b border-stone-300 bg-stone-100 jupiter-bg-1">
+    <div class="min-h-screen min-w-[900px] trippy-sky-bg text-stone-900">
+        <header class="border-b border-stone-300 bg-stone-100 trippy-sky-bg">
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
                     <div>
@@ -100,7 +101,7 @@
                 </nav>
             </div>
         </header>
-      <main class="max-w-7xl px-auto pt-8">
+      <main class="max-w-7xl px-auto p-8 pb-0">
         <!-- i know i have a back button here. i didn't forget -->
             <a href="/index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline"><<< back</a>
             <div class="mb-8 text-center">
@@ -109,33 +110,47 @@
                 <p class="text-sm text-grey-600">click on a book to copy author + title to clipboard</p>
             </div>
                 
-            <div class="flex justify-center" style="margin-left: -80px; margin-bottom: -20px;">
-                <img src="books-pngs/cup.png" style="width: auto; height: auto; flex-shrink: 0;" alt="steaming cup">
-            </div>
-            <div class="flex row justify-center items-end">
-            <div id="tooltip"></div>
-                <div class="black-border bookshelf-container">
-                    <div class="bookshelf outset-border">
-                            <div class="between-shelves">
-                                <div class="section-header">
-                                    <h2>Graphic Novels</h2>
-                                </div>
-                            </div>
-                        <p id="shelf-comics" class="shelf inset-border "> </p>
-                            <div class="between-shelves">
-                                <div class="section-header">
-                                    <h2>Non-Fiction</h2>
-                                </div>
-                            </div>
-                        <p id="shelf-non-fiction" class="shelf inset-border"> </p>
-                            <div class="between-shelves">
-                                <div class="section-header">
-                                    <h2>Fiction</h2>
-                                </div>
-                            </div>
-                        <p id="shelf-fiction" class="shelf inset-border"> </p>
-                    </div>
+            <div class="flex justify-center items-end">
+                <div class="picture-frame" style=" width: fit-content;">
+                    <p style="width: 285px; text-align: left;">at the library searching for 1 science-fiction shelf amongst 999 fantasy shelves</p>
+                    <img src="images-from-the-internet/bookshelf-cat.gif" style="width: auto; height: 160px;" alt="bookshelf cat">
                 </div>
+                <img src="books-pngs/cup.png" style="width: auto; height: auto; flex-shrink: 0;margin-bottom: -20px; margin-left: 15px;" alt="steaming cup">
+            </div>
+            <div class="flex row items-end">
+              <div id="tooltip"></div>
+              <div class="black-border bookshelf-container">
+                  <div class="bookshelf outset-border">
+                          <div class="between-shelves">
+                              <div class="section-header">
+                                  <h2>Graphic Novels</h2>
+                              </div>
+                          </div>
+                      <p id="shelf-comics" class="shelf inset-border "> </p>
+                          <div class="between-shelves">
+                              <div class="section-header">
+                                  <h2>Non-Fiction</h2>
+                              </div>
+                          </div>
+                      <p id="shelf-non-fiction" class="shelf inset-border"> </p>
+                  </div>
+              </div>
+              <div class="black-border bookshelf-container">
+                  <div class="bookshelf outset-border">
+                          <div class="between-shelves">
+                              <div class="section-header">
+                                  <h2>Manga</h2>
+                              </div>
+                          </div>
+                      <p id="shelf-manga" class="shelf inset-border "> </p>
+                          <div class="between-shelves">
+                              <div class="section-header">
+                                  <h2>Fiction</h2>
+                              </div>
+                          </div>
+                      <p id="shelf-fiction" class="shelf inset-border"> </p>
+                  </div>
+              </div>
             </div>
         </main>
     </div>
@@ -181,6 +196,26 @@ const books_fiction = [
     img: "book-37.png", 
     title: "Planet der Affen", 
     author: "Pierre Boulle" 
+},
+  { 
+    img: "book-50.png", 
+    title: "Weltenzerstörer", 
+    author: "Liu Cixin"
+},
+  { 
+    img: "book-51.png", 
+    title: "Spiegel", 
+    author: "Liu Cixin"
+},
+  { 
+    img: "book-49.png", 
+    title: "Tiere für Fortgeschrittene", 
+    author: "Eva Menasse"
+},
+  { 
+    img: "book-52.png", 
+    title: "Wir haben keine Antimemetik-Abteilung", 
+    author: "Sam Hughes"
 },
 ]
 
@@ -261,6 +296,11 @@ const books_nonfiction = [
     author: "" 
 },
   { 
+    img: "book-41.png", 
+    title: "Ein (bisschen) Weltall für alle", 
+    author: "Rabbea Rogge" 
+},
+  { 
     img: "book-39.png", 
     title: "Gödel, Escher, Bach: Ein endloses geflochtenes Band", 
     author: "Douglas R. Hofstadter" 
@@ -270,11 +310,16 @@ const books_nonfiction = [
     title: "Das geheime Bewusstsein der Pflanzen", 
     author: "Joseph Scheppach" 
 },
-//   { 
-//     img: "book-41.png", 
-//     title: "Ein (bisschen) Weltall für alle", 
-//     author: "Rabbea Rogge" 
-// },
+  { 
+    img: "book-53.png", 
+    title: "What if?", 
+    author: "Randall Munroe"
+},
+  { 
+    img: "book-54.png", 
+    title: "Die Sprache der Wale", 
+    author: "Tom Mustill"
+},
 ]
 
 const comics = [
@@ -363,9 +408,43 @@ const comics = [
     title: "Parallel", 
     author: "Matthias Lehmann" 
 },
+  { 
+    img: "book-44.png", 
+    title: "Trip mit Tropf", 
+    author: "Josephine Mark"
+},
+  { 
+    img: "book-45.png", 
+    title: "Sentient: Kinder der K.I.", 
+    author: "Jeff Lemire"
+},
+  { 
+    img: "book-46.png", 
+    title: "Die drei ??? und das Gespensterschloss", 
+    author: "Christopher Tauber, Ines Korth"
+},
+  { 
+    img: "book-48.png", 
+    title: "Ideal Standard", 
+    author: "Aude Picault"
+},
+]
+
+const mangas = [
+  { 
+    img: "book-43.png", 
+    title: "Unofficial Hatsune Mix", 
+    author: "Kei" 
+},
+  { 
+    img: "book-47.png", 
+    title: "Dissolving Classroom", 
+    author: "Junji Ito" 
+},
 ]
 
 const comicsShelf = document.getElementById("shelf-comics");
+const mangaShelf = document.getElementById("shelf-manga");
 const nonFictionShelf = document.getElementById("shelf-non-fiction");
 const fictionShelf = document.getElementById("shelf-fiction");
 const tooltip = document.getElementById("tooltip")
@@ -406,6 +485,10 @@ function addBook(book, targetShelfElement)  {
 
 comics.slice().forEach(book => {
     addBook(book, comicsShelf)
+})
+
+mangas.slice().forEach(book => {
+    addBook(book, mangaShelf)
 })
 
 books_nonfiction.slice().forEach(book => {
