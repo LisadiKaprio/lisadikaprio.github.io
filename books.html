@@ -1,516 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LisadiKaprio Gallery</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LisadiKaprio Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <style>
     .section-header {
-        margin: 0;
-        color: black;
-        filter: drop-shadow(0 0 3px black);
-        background-color: #d1d5db;
-        padding: 6px 12px;
-        transform: translateY(24px);
+      margin: 0;
+      color: black;
+      filter: drop-shadow(0 0 3px black);
+      background-color: #d1d5db;
+      padding: 6px 12px;
+      transform: translateY(24px);
     }
 
     .black-border {
-        border: 2px rgb(0, 0, 0) solid;
+      border: 2px rgb(0, 0, 0) solid;
     }
 
     .bookshelf {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        background-color: #b39383;
-        width: 800px
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background-color: #b39383;
+      width: 800px
     }
 
     .shelf {
-        background-color: #8f8591;
-        padding: 0 ;
-        margin: 4px;
-        display: flex; 
-        flex-direction: row; 
-        align-items: flex-end; 
-        justify-content: flex-start;
-        gap: 0;
-        min-height: 475px;
+      background-color: #8f8591;
+      padding: 0;
+      margin: 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 0;
+      min-height: 475px;
     }
 
     .between-shelves {
-        background-color: #b39383;
-        display: flex;
-        align-items: center;
-        padding-left: 24px;
-        height: 16px;
-        border: ridge #cfae9d 8px;
-        margin: 12px;
+      background-color: #b39383;
+      display: flex;
+      align-items: center;
+      padding-left: 24px;
+      height: 16px;
+      border: ridge #cfae9d 8px;
+      margin: 12px;
     }
 
     .inset-border {
-        border: inset #b39383 10px;
+      border: inset #b39383 10px;
     }
 
     .outset-border {
-        border: outset #b39383 10px;
+      border: outset #b39383 10px;
     }
 
     .no-bottom-border {
-        border-bottom: 0px;
+      border-bottom: 0px;
     }
 
     #tooltip {
-        position: fixed;
-        pointer-events: none;
-        background: rgba(0,0,0,0.8);
-        color: white;
-        padding: 6px 8px;
-        border-radius: 4px;
-        font-size: 12px;
+      position: fixed;
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 12px;
     }
-    </style>
+  </style>
 </head>
+
 <body class="font-mono antialiased">
-    <script src="/oneko.js"></script>
-    <!-- <script src="/oneko.js"></script> -->
-    <div class="min-h-screen min-w-[900px] trippy-sky-bg text-stone-900">
-        <header class="border-b border-stone-300 bg-stone-100 trippy-sky-bg">
-            <div class="max-w-4xl mx-auto px-4 py-4">
-                <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
-                    <div>
-                        [<a href="index.html" class="font-mono text-gray-300  hover:text-white hover:underline">
-                            about
-                        </a>]
-                        [<a href="gallery.html"
-                            class="font-mono text-gray-300  hover:text-white hover:underline">
-                            gallery
-                        </a>]
-                        [<a href="archive.html"
-                            class="font-mono text-gray-300  hover:text-white hover:underline">
-                            archive
-                        </a>]
-                    </div>
-                    <div class="text-gray-200 flex flex-row space-x-3 items-end">
-                        <p id="catBedText">click the cat ✮˚.⋆ →</p>
-                        <img id="liloSleeping" src="lilo-sleeping.gif" style="display:inline" ></img>
-                    </div>
-                </nav>
+  <script src="/oneko.js"></script>
+  <!-- <script src="/oneko.js"></script> -->
+  <div class="min-h-screen min-w-[900px] trippy-sky-bg text-stone-900">
+    <header class="border-b border-stone-300 bg-stone-100 trippy-sky-bg">
+      <div class="max-w-4xl mx-auto px-4 py-4">
+        <nav class="flex flex-row gap-6 text-sm  text-white justify-between">
+          <div>
+            [<a href="index.html" class="font-mono text-gray-300  hover:text-white hover:underline">
+              about
+            </a>]
+            [<a href="gallery.html" class="font-mono text-gray-300  hover:text-white hover:underline">
+              gallery
+            </a>]
+            [<a href="archive.html" class="font-mono text-gray-300  hover:text-white hover:underline">
+              archive
+            </a>]
+          </div>
+          <div class="text-gray-200 flex flex-row space-x-3 items-end">
+            <p id="catBedText">click the cat ✮˚.⋆ →</p>
+            <img id="liloSleeping" src="lilo-sleeping.gif" style="display:inline"></img>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="max-w-7xl px-auto p-8 pb-0">
+      <!-- i know i have a back button here. i didn't forget -->
+      <a href="/index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline">
+        <<< back</a>
+          <div class="mb-8 text-center">
+            <h1 class="text-xl font-mono mb-2">digital bookshelf</h1>
+            <p class="text-sm text-grey-600">2025-2026</p>
+            <p class="text-sm text-grey-600">click on a book to copy author + title to clipboard</p>
+          </div>
+
+          <div class="flex justify-center items-end">
+            <div class="picture-frame" style=" width: fit-content;">
+              <p style="width: 285px; text-align: left;">at the library searching for 1 science-fiction shelf amongst
+                999 fantasy shelves</p>
+              <img src="images-from-the-internet/bookshelf-cat.gif" style="width: auto; height: 160px;"
+                alt="bookshelf cat">
             </div>
-        </header>
-      <main class="max-w-7xl px-auto p-8 pb-0">
-        <!-- i know i have a back button here. i didn't forget -->
-            <a href="/index.html" class="font-mono text-stone-600 hover:text-stone-900 hover:underline"><<< back</a>
-            <div class="mb-8 text-center">
-                <h1 class="text-xl font-mono mb-2">digital bookshelf</h1>
-                <p class="text-sm text-grey-600">2025-2026</p>
-                <p class="text-sm text-grey-600">click on a book to copy author + title to clipboard</p>
-            </div>
-                
-            <div class="flex justify-center items-end">
-                <div class="picture-frame" style=" width: fit-content;">
-                    <p style="width: 285px; text-align: left;">at the library searching for 1 science-fiction shelf amongst 999 fantasy shelves</p>
-                    <img src="images-from-the-internet/bookshelf-cat.gif" style="width: auto; height: 160px;" alt="bookshelf cat">
+            <img src="books-pngs/cup.png"
+              style="width: auto; height: auto; flex-shrink: 0;margin-bottom: -20px; margin-left: 15px;"
+              alt="steaming cup">
+          </div>
+          <div class="flex row items-end">
+            <div id="tooltip"></div>
+            <div class="black-border bookshelf-container">
+              <div class="bookshelf outset-border">
+                <div class="between-shelves">
+                  <div class="section-header">
+                    <h2>Graphic Novels</h2>
+                  </div>
                 </div>
-                <img src="books-pngs/cup.png" style="width: auto; height: auto; flex-shrink: 0;margin-bottom: -20px; margin-left: 15px;" alt="steaming cup">
-            </div>
-            <div class="flex row items-end">
-              <div id="tooltip"></div>
-              <div class="black-border bookshelf-container">
-                  <div class="bookshelf outset-border">
-                          <div class="between-shelves">
-                              <div class="section-header">
-                                  <h2>Graphic Novels</h2>
-                              </div>
-                          </div>
-                      <p id="shelf-comics" class="shelf inset-border "> </p>
-                          <div class="between-shelves">
-                              <div class="section-header">
-                                  <h2>Non-Fiction</h2>
-                              </div>
-                          </div>
-                      <p id="shelf-non-fiction" class="shelf inset-border"> </p>
+                <p id="shelf-comics" class="shelf inset-border "> </p>
+                <div class="between-shelves">
+                  <div class="section-header">
+                    <h2>Non-Fiction</h2>
                   </div>
-              </div>
-              <div class="black-border bookshelf-container">
-                  <div class="bookshelf outset-border">
-                          <div class="between-shelves">
-                              <div class="section-header">
-                                  <h2>Manga</h2>
-                              </div>
-                          </div>
-                      <p id="shelf-manga" class="shelf inset-border "> </p>
-                          <div class="between-shelves">
-                              <div class="section-header">
-                                  <h2>Fiction</h2>
-                              </div>
-                          </div>
-                      <p id="shelf-fiction" class="shelf inset-border"> </p>
-                  </div>
+                </div>
+                <p id="shelf-non-fiction" class="shelf inset-border"> </p>
               </div>
             </div>
-        </main>
-    </div>
+            <div class="black-border bookshelf-container">
+              <div class="bookshelf outset-border">
+                <div class="between-shelves">
+                  <div class="section-header">
+                    <h2>Manga</h2>
+                  </div>
+                </div>
+                <p id="shelf-manga" class="shelf inset-border "> </p>
+                <div class="between-shelves">
+                  <div class="section-header">
+                    <h2>Fiction</h2>
+                  </div>
+                </div>
+                <p id="shelf-fiction" class="shelf inset-border"> </p>
+              </div>
+            </div>
+          </div>
+    </main>
+  </div>
 </body>
 <script>
-const books_fiction = [
-  { 
-    img: "book-0-1.png", 
-    title: "Der Brief für den König", 
-    author: "Tonke Dragt",
-},
-  { 
-    img: "book-0-2.png", 
-    title: "Der Fremde", 
-    author: "Albert Camus" ,
-},
-  { 
-    img: "book-8.png", 
-    title: "(short stories)", 
-    author: "Ted Chiang" 
-},
-  { 
-    img: "book-12.png", 
-    title: "Per Anhalter durch die Galaxis", 
-    author: "Douglas Adams" 
-},
-  { 
-    img: "book-17.png", 
-    title: "Das Restaurant am Ende des Universums", 
-    author: "Douglas Adams" 
-},
-  { 
-    img: "book-20.png", 
-    title: "Das Leben, das Universum und der ganze Rest", 
-    author: "Douglas Adams" 
-},
-  { 
-    img: "book-42.png", 
-    title: "Ikebana; Und plötzlich ein Mord", 
-    author: "Werner Steinberg" 
-},
-  { 
-    img: "book-37.png", 
-    title: "Planet der Affen", 
-    author: "Pierre Boulle" 
-},
-  { 
-    img: "book-50.png", 
-    title: "Weltenzerstörer", 
-    author: "Liu Cixin"
-},
-  { 
-    img: "book-51.png", 
-    title: "Spiegel", 
-    author: "Liu Cixin"
-},
-  { 
-    img: "book-49.png", 
-    title: "Tiere für Fortgeschrittene", 
-    author: "Eva Menasse"
-},
-  { 
-    img: "book-52.png", 
-    title: "Wir haben keine Antimemetik-Abteilung", 
-    author: "Sam Hughes"
-},
-]
+  const books_fiction = [
+    {
+      img: "book-0-1.png",
+      title: "Der Brief für den König",
+      author: "Tonke Dragt",
+    },
+    {
+      img: "book-0-2.png",
+      title: "Der Fremde",
+      author: "Albert Camus",
+    },
+    {
+      img: "book-8.png",
+      title: "(short stories)",
+      author: "Ted Chiang"
+    },
+    {
+      img: "book-12.png",
+      title: "Per Anhalter durch die Galaxis",
+      author: "Douglas Adams"
+    },
+    {
+      img: "book-17.png",
+      title: "Das Restaurant am Ende des Universums",
+      author: "Douglas Adams"
+    },
+    {
+      img: "book-20.png",
+      title: "Das Leben, das Universum und der ganze Rest",
+      author: "Douglas Adams"
+    },
+    {
+      img: "book-42.png",
+      title: "Ikebana; Und plötzlich ein Mord",
+      author: "Werner Steinberg"
+    },
+    {
+      img: "book-37.png",
+      title: "Planet der Affen",
+      author: "Pierre Boulle"
+    },
+    {
+      img: "book-50.png",
+      title: "Weltenzerstörer",
+      author: "Liu Cixin"
+    },
+    {
+      img: "book-51.png",
+      title: "Spiegel",
+      author: "Liu Cixin"
+    },
+    {
+      img: "book-49.png",
+      title: "Tiere für Fortgeschrittene",
+      author: "Eva Menasse"
+    },
+    {
+      img: "book-52.png",
+      title: "Wir haben keine Antimemetik-Abteilung",
+      author: "Sam Hughes"
+    },
+  ]
 
-const books_nonfiction = [
-  { 
-    img: "book-1.png", 
-    title: "Zwanghaft", 
-    author: "David Adam" ,
-},
-  { 
-    img: "book-2.png", 
-    title: "True Crime in Nature", 
-    author: "Farina Grassmann" 
-},
-  { 
-    img: "book-3.png", 
-    title: "Der elektronische Spiegel", 
-    author: "Manuela Lenzen" 
-},
-  { 
-    img: "book-4.png", 
-    title: "This Way Up", 
-    author: "Map Men" 
-},
-  { 
-    img: "book-5.png", 
-    title: "The Courage to Be Disliked", 
-    author: "Ichiro Kishimi, Fumitake Koga" 
-},
-  { 
-    img: "book-6.png", 
-    title: "The Courage to Be Happy", 
-    author: "Ichiro Kishimi, Fumitake Koga" 
-},
-  { 
-    img: "book-7.png", 
-    title: "Menschenkenntnis", 
-    author: "Alfred Adler" 
-},
-  { 
-    img: "book-11.png", 
-    title: "Die Kunst des Liebens", 
-    author: "Erich Fromm" 
-},
-  { 
-    img: "book-14.png", 
-    title: "Haben oder Sein", 
-    author: "Erich Fromm" 
-},
-  { 
-    img: "book-22.png", 
-    title: "Бегство от свободы", 
-    author: "Эрих Фромм" 
-},
-  { 
-    img: "book-23.png", 
-    title: "The Encyclopedia of the weird and wonderful", 
-    author: "Milo Rossi" 
-},
-  { 
-    img: "book-27.png", 
-    title: "Eine kurze Geschichte von fast allem", 
-    author: "Bill Bryson" 
-},
-  { 
-    img: "book-26.png", 
-    title: "Sapiens", 
-    author: "Yuval Noah Harari" 
-},
-  { 
-    img: "book-34.png", 
-    title: "Und jetzt das Wetter", 
-    author: "Silke Hansen" 
-},
-  { 
-    img: "book-35.png", 
-    title: "Kat Menschiks und des Diplom-Biologen Doctor Rerum Medicinalium Mark Beneckes Illustrirtes Thierleben", 
-    author: "" 
-},
-  { 
-    img: "book-41.png", 
-    title: "Ein (bisschen) Weltall für alle", 
-    author: "Rabbea Rogge" 
-},
-  { 
-    img: "book-39.png", 
-    title: "Gödel, Escher, Bach: Ein endloses geflochtenes Band", 
-    author: "Douglas R. Hofstadter" 
-},
-  { 
-    img: "book-40.png", 
-    title: "Das geheime Bewusstsein der Pflanzen", 
-    author: "Joseph Scheppach" 
-},
-  { 
-    img: "book-53.png", 
-    title: "What if?", 
-    author: "Randall Munroe"
-},
-  { 
-    img: "book-54.png", 
-    title: "Die Sprache der Wale", 
-    author: "Tom Mustill"
-},
-]
+  const books_nonfiction = [
+    {
+      img: "book-1.png",
+      title: "Zwanghaft",
+      author: "David Adam",
+    },
+    {
+      img: "book-2.png",
+      title: "True Crime in Nature",
+      author: "Farina Grassmann"
+    },
+    {
+      img: "book-3.png",
+      title: "Der elektronische Spiegel",
+      author: "Manuela Lenzen"
+    },
+    {
+      img: "book-4.png",
+      title: "This Way Up",
+      author: "Map Men"
+    },
+    {
+      img: "book-5.png",
+      title: "The Courage to Be Disliked",
+      author: "Ichiro Kishimi, Fumitake Koga"
+    },
+    {
+      img: "book-6.png",
+      title: "The Courage to Be Happy",
+      author: "Ichiro Kishimi, Fumitake Koga"
+    },
+    {
+      img: "book-7.png",
+      title: "Menschenkenntnis",
+      author: "Alfred Adler"
+    },
+    {
+      img: "book-11.png",
+      title: "Die Kunst des Liebens",
+      author: "Erich Fromm"
+    },
+    {
+      img: "book-14.png",
+      title: "Haben oder Sein",
+      author: "Erich Fromm"
+    },
+    {
+      img: "book-22.png",
+      title: "Бегство от свободы",
+      author: "Эрих Фромм"
+    },
+    {
+      img: "book-23.png",
+      title: "The Encyclopedia of the weird and wonderful",
+      author: "Milo Rossi"
+    },
+    {
+      img: "book-27.png",
+      title: "Eine kurze Geschichte von fast allem",
+      author: "Bill Bryson"
+    },
+    {
+      img: "book-26.png",
+      title: "Sapiens",
+      author: "Yuval Noah Harari"
+    },
+    {
+      img: "book-34.png",
+      title: "Und jetzt das Wetter",
+      author: "Silke Hansen"
+    },
+    {
+      img: "book-35.png",
+      title: "Kat Menschiks und des Diplom-Biologen Doctor Rerum Medicinalium Mark Beneckes Illustrirtes Thierleben",
+      author: ""
+    },
+    {
+      img: "book-41.png",
+      title: "Ein (bisschen) Weltall für alle",
+      author: "Rabbea Rogge"
+    },
+    {
+      img: "book-39.png",
+      title: "Gödel, Escher, Bach: Ein endloses geflochtenes Band",
+      author: "Douglas R. Hofstadter"
+    },
 
-const comics = [
-  { 
-    img: "book-9.png", 
-    title: "Nekropolis", 
-    author: "Boris Pahor, Jurij Devetak" 
-},
-  { 
-    img: "book-10.png", 
-    title: "Ducks", 
-    author: "Kate Beaton" 
-},
-  { 
-    img: "book-13.png", 
-    title: "Der Krieg der Welten", 
-    author: "H.G. Wells, Thilo Krapp" 
-},
-  { 
-    img: "book-15.png", 
-    title: "Die Wandernde Erde", 
-    author: "Cixin Liu, Christophe Bec, Stefano Raffaele" 
-},
-  { 
-    img: "book-16.png", 
-    title: "Der Verschlinger", 
-    author: "Cixin Liu, Jean-David Morvan, Yang Wie-Lin" 
-},
-  { 
-    img: "book-25.png", 
-    title: "Yuanyuan's Blasen", 
-    author: "Cixin Liu, Valérie Mangin, Steven Dupré" 
-},
-  { 
-    img: "book-30.png", 
-    title: "Der Dorflehrer", 
-    author: "Cixin Liu, Zhang Xiaoyu" 
-},
-  { 
-    img: "book-31.png", 
-    title: "Meer der Träume", 
-    author: "Cixin Liu, Rodolfo Santullo" 
-},
-  { 
-    img: "book-19.png", 
-    title: "Amalia", 
-    author: "Aude Picault" 
-},
-  { 
-    img: "book-21.png", 
-    title: "In 80 Tagen um die Welt (Graphic Novel nach Jules Verne)", 
-    author: "Younn Locard, Jean-Michel Coblence" 
-},
-  { 
-    img: "book-28.png", 
-    title: "Šetač: The Director's Cut Edition", 
-    author: "Jiro Taniguchi" 
-},
-  { 
-    img: "book-24.png", 
-    title: "Sonnenseiten", 
-    author: "Ana Penyas" 
-},
-  { 
-    img: "book-29.png", 
-    title: "Bloody Mary", 
-    author: "Kristina Gehrmann" 
-},
-  { 
-    img: "book-32.png", 
-    title: "Mein Freund Pierrot", 
-    author: "Jon Bishop" 
-},
-  { 
-    img: "book-33.png", 
-    title: "Das Labyrinth", 
-    author: "Simon Stålenhag" 
-},
-  { 
-    img: "book-36.png", 
-    title: "Wie ein leeres Blatt", 
-    author: "Pénélope Bagieu" 
-},
-  { 
-    img: "book-38.png", 
-    title: "Parallel", 
-    author: "Matthias Lehmann" 
-},
-  { 
-    img: "book-44.png", 
-    title: "Trip mit Tropf", 
-    author: "Josephine Mark"
-},
-  { 
-    img: "book-45.png", 
-    title: "Sentient: Kinder der K.I.", 
-    author: "Jeff Lemire"
-},
-  { 
-    img: "book-46.png", 
-    title: "Die drei ??? und das Gespensterschloss", 
-    author: "Christopher Tauber, Ines Korth"
-},
-  { 
-    img: "book-48.png", 
-    title: "Ideal Standard", 
-    author: "Aude Picault"
-},
-]
+    // ---------
+    // I can't really recommend this book...
+    // The writing style gets boring at times
+    // and it promotes ideas that edge on pseudo-science
+    // without giving a proper critique on them or fully discussing their implications..
+    // but I did learn a lot of new stuff from it... hmm...
+    // { 
+    //   img: "book-40.png", 
+    //   title: "Das geheime Bewusstsein der Pflanzen", 
+    //   author: "Joseph Scheppach" 
+    // },
+    // -----
 
-const mangas = [
-  { 
-    img: "book-43.png", 
-    title: "Unofficial Hatsune Mix", 
-    author: "Kei" 
-},
-  { 
-    img: "book-47.png", 
-    title: "Dissolving Classroom", 
-    author: "Junji Ito" 
-},
-]
+    {
+      img: "book-53.png",
+      title: "What if?",
+      author: "Randall Munroe"
+    },
+    {
+      img: "book-54.png",
+      title: "Die Sprache der Wale",
+      author: "Tom Mustill"
+    },
+  ]
 
-const comicsShelf = document.getElementById("shelf-comics");
-const mangaShelf = document.getElementById("shelf-manga");
-const nonFictionShelf = document.getElementById("shelf-non-fiction");
-const fictionShelf = document.getElementById("shelf-fiction");
-const tooltip = document.getElementById("tooltip")
+  const comics = [
+    {
+      img: "book-9.png",
+      title: "Nekropolis",
+      author: "Boris Pahor, Jurij Devetak"
+    },
+    {
+      img: "book-10.png",
+      title: "Ducks",
+      author: "Kate Beaton"
+    },
+    {
+      img: "book-13.png",
+      title: "Der Krieg der Welten",
+      author: "H.G. Wells, Thilo Krapp"
+    },
+    {
+      img: "book-15.png",
+      title: "Die Wandernde Erde",
+      author: "Cixin Liu, Christophe Bec, Stefano Raffaele"
+    },
+    {
+      img: "book-16.png",
+      title: "Der Verschlinger",
+      author: "Cixin Liu, Jean-David Morvan, Yang Wie-Lin"
+    },
+    {
+      img: "book-25.png",
+      title: "Yuanyuan's Blasen",
+      author: "Cixin Liu, Valérie Mangin, Steven Dupré"
+    },
+    {
+      img: "book-30.png",
+      title: "Der Dorflehrer",
+      author: "Cixin Liu, Zhang Xiaoyu"
+    },
+    {
+      img: "book-31.png",
+      title: "Meer der Träume",
+      author: "Cixin Liu, Rodolfo Santullo"
+    },
+    {
+      img: "book-19.png",
+      title: "Amalia",
+      author: "Aude Picault"
+    },
+    {
+      img: "book-21.png",
+      title: "In 80 Tagen um die Welt (Graphic Novel nach Jules Verne)",
+      author: "Younn Locard, Jean-Michel Coblence"
+    },
+    {
+      img: "book-28.png",
+      title: "Šetač: The Director's Cut Edition",
+      author: "Jiro Taniguchi"
+    },
+    {
+      img: "book-24.png",
+      title: "Sonnenseiten",
+      author: "Ana Penyas"
+    },
+    {
+      img: "book-29.png",
+      title: "Bloody Mary",
+      author: "Kristina Gehrmann"
+    },
+    {
+      img: "book-32.png",
+      title: "Mein Freund Pierrot",
+      author: "Jon Bishop"
+    },
+    {
+      img: "book-33.png",
+      title: "Das Labyrinth",
+      author: "Simon Stålenhag"
+    },
+    {
+      img: "book-36.png",
+      title: "Wie ein leeres Blatt",
+      author: "Pénélope Bagieu"
+    },
+    {
+      img: "book-38.png",
+      title: "Parallel",
+      author: "Matthias Lehmann"
+    },
+    {
+      img: "book-44.png",
+      title: "Trip mit Tropf",
+      author: "Josephine Mark"
+    },
+    {
+      img: "book-45.png",
+      title: "Sentient: Kinder der K.I.",
+      author: "Jeff Lemire"
+    },
+    {
+      img: "book-46.png",
+      title: "Die drei ??? und das Gespensterschloss",
+      author: "Christopher Tauber, Ines Korth"
+    },
+    {
+      img: "book-48.png",
+      title: "Ideal Standard",
+      author: "Aude Picault"
+    },
+  ]
 
-// container.style.display = "flex"
-// container.style.flexDirection = "column"
-// container.style.gap = "0"
+  const mangas = [
+    {
+      img: "book-43.png",
+      title: "Unofficial Hatsune Mix",
+      author: "Kei"
+    },
+    {
+      img: "book-47.png",
+      title: "Dissolving Classroom",
+      author: "Junji Ito"
+    },
+  ]
 
-tooltip.style.display = "none"
+  const comicsShelf = document.getElementById("shelf-comics");
+  const mangaShelf = document.getElementById("shelf-manga");
+  const nonFictionShelf = document.getElementById("shelf-non-fiction");
+  const fictionShelf = document.getElementById("shelf-fiction");
+  const tooltip = document.getElementById("tooltip")
 
-function addBook(book, targetShelfElement)  {
-  const img = document.createElement("img")
-  img.src = "books-pngs/" + book.img
-  img.classList.add("book")
+  // container.style.display = "flex"
+  // container.style.flexDirection = "column"
+  // container.style.gap = "0"
 
-  const text = book.author + ": " + book.title
+  tooltip.style.display = "none"
 
-  img.addEventListener("mousemove", e => {
-    tooltip.style.display = "block"
-    tooltip.textContent = text
-    tooltip.style.left = e.clientX + "px"
-    tooltip.style.top = e.clientY + 20 + "px"
-  })
+  function addBook(book, targetShelfElement) {
+    const img = document.createElement("img")
+    img.src = "books-pngs/" + book.img
+    img.classList.add("book")
 
-  img.addEventListener("mouseleave", () => {
-    tooltip.style.display = "none"
-  })
+    const text = book.author + ": " + book.title
 
-  img.addEventListener("click", () => {
-    navigator.clipboard.writeText(text)
-    tooltip.textContent = "Copied to clipboard!"
-    tooltip.style.display = "block"
-    setTimeout(() => tooltip.textContent = text, 850)
-  })
+    img.addEventListener("mousemove", e => {
+      tooltip.style.display = "block"
+      tooltip.textContent = text
+      tooltip.style.left = e.clientX + "px"
+      tooltip.style.top = e.clientY + 20 + "px"
+    })
 
-  targetShelfElement.appendChild(img)
-}
+    img.addEventListener("mouseleave", () => {
+      tooltip.style.display = "none"
+    })
 
-comics.slice().forEach(book => {
+    img.addEventListener("click", () => {
+      navigator.clipboard.writeText(text)
+      tooltip.textContent = "Copied to clipboard!"
+      tooltip.style.display = "block"
+      setTimeout(() => tooltip.textContent = text, 850)
+    })
+
+    targetShelfElement.appendChild(img)
+  }
+
+  comics.slice().forEach(book => {
     addBook(book, comicsShelf)
-})
+  })
 
-mangas.slice().forEach(book => {
+  mangas.slice().forEach(book => {
     addBook(book, mangaShelf)
-})
+  })
 
-books_nonfiction.slice().forEach(book => {
+  books_nonfiction.slice().forEach(book => {
     addBook(book, nonFictionShelf)
-})
+  })
 
-books_fiction.slice().forEach(book => {
+  books_fiction.slice().forEach(book => {
     addBook(book, fictionShelf)
-})
+  })
 
 
-const liloSleeping = document.getElementById('liloSleeping');
-liloSleeping.addEventListener('click', function() {
+  const liloSleeping = document.getElementById('liloSleeping');
+  liloSleeping.addEventListener('click', function () {
     if (liloSleeping.src.includes("lilo-empty-bed")) {
-        window.stopAnimatingNeko();
-        liloSleeping.src = "lilo-sleeping.gif" 
-        // document.getElementById("catBedText").textContent = "<- click to wake the cat up"
+      window.stopAnimatingNeko();
+      liloSleeping.src = "lilo-sleeping.gif"
+      // document.getElementById("catBedText").textContent = "<- click to wake the cat up"
     } else {
-        window.startAnimatingNeko();
-        liloSleeping.src = "lilo-empty-bed.png" 
-        // document.getElementById("catBedText").textContent = "<- click again so she goes back to sleep :3"
+      window.startAnimatingNeko();
+      liloSleeping.src = "lilo-empty-bed.png"
+      // document.getElementById("catBedText").textContent = "<- click again so she goes back to sleep :3"
     }
-});
+  });
 </script>
+
 </html>
