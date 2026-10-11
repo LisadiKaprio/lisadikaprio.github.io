@@ -86,26 +86,26 @@
     }
 
     .placeholder-book-spine {
-      width: 30px;
       border: 1px black solid;
-      height: 300px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding-left: 2px;
+      padding-right: 2px;
       cursor: pointer;
       writing-mode:sideways-lr;
       text-orientation: mixed;
     }
 
     .placeholder-book-spine-title {
-      font-size: 14px;
+      /* font-size: 14px; */
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-top: 8px;
     }
 
     .placeholder-book-spine-author {
-      font-size: 11px;
+      /* font-size: 11px; */
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -251,10 +251,101 @@
       author: "Sam Hughes"
     },    
     {
+      title: "Der Blick von den Sternen",
+      author: "Cixin Liu",
+      spineColor: "#355254",
+      width: 36,
+      height: 290,
+      titleColor: "white",
+      authorColor: "white",
+    },
+    {
+      title: "Jurassic Park",
+      author: "Michael Crichton",
+      spineColor: "#315c43",
+      width: 43,
+      height: 290,
+      titleColor: "white",
+      authorColor: "white",
+    },
+    {
+      title: "Пикник на обочине",
+      author: "Аркадий и Борис Стругацкие",
+      spineColor: "#fdeca7",
+      width: 25,
+      height: 250,
+      titleColor: "#358a81",
+      authorColor: "#d66c00",
+      titleFontSize: "10px",
+      authorFontSize: "8px"
+    },
+    {
+      title: "Solaris",
+      author: "Stanislaw Lem",
+      spineColor: "#2b2a29",
+      width: 30,
+      height: 250,
+      titleColor: "#d169b2",
+      authorColor: "#c7beb7",
+    },
+    {
+      title: "Der europäische Frühling",
+      author: "Kaspar Colling Nielsen",
+      spineColor: "#322e25",
+      width: 50,
+      height: 310,
+      titleColor: "white",
+      authorColor: "white",
+    },
+    {
+      title: "Der schlauste Mann der Welt",
+      author: "Andreas Eschbach",
+      spineColor: "#e3e2da",
+      width: 28,
+      height: 270,
+      titleColor: "#f07c2a",
+      authorColor: "#f07c2a",
+      titleFontSize: "10px"
+    },
+    {
+      title: "Golem XIV",
+      author: "Stanislaw Lem",
+      spineColor: "#629094",
+      width: 28,
+      height: 230,
+      titleColor: "#fff7e3",
+      authorColor: "#fff7e3",
+    },
+    {
+      title: "Drei geschichtenerzählende Maschinen",
+      author: "Stanislaw Lem",
+      spineColor: "#0288ad",
+      width: 28,
+      height: 230,
+      titleColor: "#fff7e3",
+      authorColor: "#fff7e3",
+      authorFontSize: "8px",
+      titleFontSize: "8px",
+    },
+    {
       title: "Sputnik",
       author: "Nikita Afanasjew",
       spineColor: "#e34242",
-      spineTextColor: "white"
+      width: 28,
+      height: 300,
+      titleColor: "#f2c385",
+      authorColor: "black",
+    },
+    {
+      title: "Der futurologische Kongreß",
+      author: "Stanislaw Lem",
+      spineColor: "#2b2a29",
+      width: 22,
+      height: 250,
+      titleColor: "#d169b2",
+      authorColor: "#c7beb7",
+      titleFontSize: "10px",
+      authorFontSize: "8px"
     },
   ]
 
@@ -368,6 +459,35 @@
       title: "Die Sprache der Wale",
       author: "Tom Mustill"
     },
+    {
+      title: "Wer bin ich und wenn ja, wie viele?",
+      author: "Richard David Precht",
+      spineColor: "#3bc3d9",
+      width: 50,
+      height: 300,
+      titleColor: "black",
+      authorColor: "black",
+    },
+    {
+      title: "Signed: Unterwegs mit der 1UP-Crew und Moses & Taps™",
+      author: "Larissa Kikol",
+      spineColor: "#a7b2b5",
+      width: 50,
+      height: 300,
+      titleColor: "white",
+      authorColor: "white",
+    },
+    {
+      title: "Der Mann, der seine Frau mit einem Hut verwechselte",
+      author: "Oliver Sacks",
+      spineColor: "#c92a28",
+      width: 30,
+      height: 300,
+      titleColor: "black",
+      authorColor: "black",
+      titleFontSize: "9px",
+      authorFontSize: "8px",
+    },
   ]
 
   const comics = [
@@ -476,6 +596,35 @@
       title: "Ideal Standard",
       author: "Aude Picault"
     },
+    {
+      title: "Holzinsel",
+      author: "Zuni und Christopher Fellehner",
+      spineColor: "#866654",
+      width: 30,
+      height: 460,
+      titleColor: "#c19f77",
+      authorColor: "#e38a93",
+    },
+    {
+      title: "Running Girl",
+      author: "Yi Luo",
+      spineColor: "white",
+      width: 10,
+      height: 300,
+      titleColor: "black",
+      authorColor: "black",
+      titleFontSize: "7px",
+      authorFontSize: "7px",
+    },
+    {
+      title: "The Ukranian and Russian Notebooks",
+      author: "Igort",
+      spineColor: "#c8c2a0",
+      width: 41,
+      height: 340,
+      titleColor: "black",
+      authorColor: "black",
+    },
   ]
 
   const mangas = [
@@ -488,6 +637,15 @@
       img: "book-47.png",
       title: "Dissolving Classroom",
       author: "Junji Ito"
+    },
+    {
+      title: "The Ghost in the Shell: Deluxe Edition",
+      author: "Shirow Masamune",
+      spineColor: "#9ea69e",
+      width: 55,
+      height: 400,
+      titleColor: "white",
+      authorColor: "white",
     },
   ]
 
@@ -515,15 +673,20 @@
       element = document.createElement("div");
       element.classList.add("placeholder-book-spine");
       element.style.backgroundColor = book.spineColor || "grey";
-      element.style.color = book.spineTextColor || "white";
+      element.style.width = `${book.width}px` || "30px";
+      element.style.height = `${book.height}px` || "300px";
       
       const author = document.createElement("span");
       author.classList.add("placeholder-book-spine-author");
       author.textContent = book.author;
+      author.style.color = book.authorColor || "white";
+      author.style.fontSize = book.authorFontSize || "11px";
       
       const title = document.createElement("span");
       title.classList.add("placeholder-book-spine-title");
       title.textContent = book.title;
+      title.style.color = book.titleColor || "white";
+      title.style.fontSize = book.titleFontSize || "14px";
       
       element.appendChild(author);
       element.appendChild(title);
